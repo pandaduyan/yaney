@@ -5,7 +5,7 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-- name: 一键连 1
+ - name: 一键连 1
     type: http
     server: 183.240.9.28,
     port: "29979"
@@ -14,7 +14,7 @@ proxies:
     tls: true
     skip-cert-verify: true
     _index: 0
-- name: 一键连 2
+ - name: 一键连 2
     type: http
     server: 183.240.9.28,
     port: "29980"
@@ -23,7 +23,7 @@ proxies:
     tls: true
     skip-cert-verify: true
     _index: 0
-- name: 一键连 3
+ - name: 一键连 3
    type: http
     server: 183.240.9.28,
     port: "29982"
@@ -32,7 +32,7 @@ proxies:
     tls: true
     skip-cert-verify: true
     _index: 0
-- name: 一键连 4
+ - name: 一键连 4
     type: http
     server: 183.240.9.28,
     port: "29983"
@@ -41,7 +41,7 @@ proxies:
     tls: true
     skip-cert-verify: true
     _index: 0
-- name: 一键连 5
+ - name: 一键连 5
     type: http
     server: 183.240.9.28,
     port: "29984"
@@ -50,7 +50,7 @@ proxies:
     tls: true
     skip-cert-verify: true
     _index: 0
-- name: 一键连 6
+ - name: 一键连 6
    type: http
     server: 183.240.9.28,
     port: "29987"
@@ -59,7 +59,7 @@ proxies:
     tls: true
     skip-cert-verify: true
     _index: 0
-- name: 一键连 7
+ - name: 一键连 7
     type: http
     server: 183.240.9.28,
     port: "29988"
@@ -68,7 +68,7 @@ proxies:
     tls: true
     skip-cert-verify: true
     _index: 0
-- name: 一键连 8
+ - name: 一键连 8
     type: http
     server: 120.232.251.206,
     port: "29979"
@@ -77,7 +77,7 @@ proxies:
     tls: true
     skip-cert-verify: true
     _index: 0
-- name: 一键连 9
+ - name: 一键连 9
     type: http
     server: 120.232.251.206,
     port: "29980"
