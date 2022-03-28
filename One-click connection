@@ -5,96 +5,16 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
- - name: 一键连 1
-    type: http
-    server: 183.240.9.28,
-    port: "29979"
-    username: "442993652168396800"
-    password: 2ef91648-089f-4c81-b34d-06f072ec51dd
-    tls: true
-    skip-cert-verify: true
-    _index: 0
- - name: 一键连 2
-    type: http
-    server: 183.240.9.28,
-    port: "29980"
-    username: "442993652168396800"
-    password: 2ef91648-089f-4c81-b34d-06f072ec51dd
-    tls: true
-    skip-cert-verify: true
-    _index: 0
- - name: 一键连 3
-   type: http
-    server: 183.240.9.28,
-    port: "29982"
-    username: "442993652168396800"
-    password: 2ef91648-089f-4c81-b34d-06f072ec51dd
-    tls: true
-    skip-cert-verify: true
-    _index: 0
- - name: 一键连 4
-    type: http
-    server: 183.240.9.28,
-    port: "29983"
-    username: "442993652168396800"
-    password: 2ef91648-089f-4c81-b34d-06f072ec51dd
-    tls: true
-    skip-cert-verify: true
-    _index: 0
- - name: 一键连 5
-    type: http
-    server: 183.240.9.28,
-    port: "29984"
-    username: "442993652168396800"
-    password: 2ef91648-089f-4c81-b34d-06f072ec51dd
-    tls: true
-    skip-cert-verify: true
-    _index: 0
- - name: 一键连 6
-   type: http
-    server: 183.240.9.28,
-    port: "29987"
-    username: "442993652168396800"
-    password: 2ef91648-089f-4c81-b34d-06f072ec51dd
-    tls: true
-    skip-cert-verify: true
-    _index: 0
- - name: 一键连 7
-    type: http
-    server: 183.240.9.28,
-    port: "29988"
-    username: "442993652168396800"
-    password: 2ef91648-089f-4c81-b34d-06f072ec51dd
-    tls: true
-    skip-cert-verify: true
-    _index: 0
- - name: 一键连 8
-    type: http
-    server: 120.232.251.206,
-    port: "29979"
-    username: "442993652168396800"
-    password: 2ef91648-089f-4c81-b34d-06f072ec51dd
-    tls: true
-    skip-cert-verify: true
-    _index: 0
- - name: 一键连 9
-    type: http
-    server: 120.232.251.206,
-    port: "29980"
-    username: "442993652168396800"
-    password: 2ef91648-089f-4c81-b34d-06f072ec51dd
-    tls: true
-    skip-cert-verify: true
-    _index: 0
- - name: 一键连 10
-    type: http
-    server: jc.ap.fastqvpn.com
-    port: "29980"
-    username: "442993652168396800"
-    password: 2ef91648-089f-4c81-b34d-06f072ec51dd
-    tls: true
-    skip-cert-verify: true
-    _index: 0
+  - {name: 一键连 1, server: 183.240.9.28, port: 29979, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
+  - {name: 一键连 2, server: 183.240.9.28, port: 29980, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
+  - {name: 一键连 3, server: 183.240.9.28, port: 29982, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
+  - {name: 一键连 4, server: 183.240.9.28, port: 29983, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
+  - {name: 一键连 5, server: 183.240.9.28, port: 29984, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
+  - {name: 一键连 6, server: 183.240.9.28, port: 29987, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
+  - {name: 一键连 7, server: 183.240.9.28, port: 29988, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true }
+  - {name: 一键连 8, server: 120.232.251.206, port: 29979, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
+  - {name: 一键连 9, server: 120.232.251.206, port: 29980, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
+  - {name: 一键连 10, server: jc.ap.fastqvpn.com, port: 29980, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
