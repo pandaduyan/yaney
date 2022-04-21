@@ -183,6 +183,13 @@ proxy-groups:
   - DIRECT
   - 解锁灰色
   - 解锁灰色2
+  - 解锁灰色3
+  - 解锁灰色4
+  - 解锁灰色5
+  - 解锁灰色6
+  - 解锁灰色7
+  - 解锁灰色8
+  - 解锁灰色9
 - name: 哔哩哔哩
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
