@@ -103,8 +103,7 @@ proxies:
   type: http
   server: ivapp.cn/wyy.txt
   tls: false
-  skip-cert-verify: true
-  
+  skip-cert-verify: true  
 proxy-groups:
 - name: 手动切换
   type: select
