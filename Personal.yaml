@@ -99,11 +99,6 @@ proxies:
   port: 443
   tls: false
   skip-cert-verify: true
-- name: 解锁灰色9
-  type: http
-  server: ivapp.cn/wyy.txt
-  tls: false
-  skip-cert-verify: true  
 proxy-groups:
 - name: 手动切换
   type: select
@@ -188,7 +183,6 @@ proxy-groups:
   - 解锁灰色6
   - 解锁灰色7
   - 解锁灰色8
-  - 解锁灰色9
 - name: 哔哩哔哩
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
