@@ -78,7 +78,6 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
   proxies:
-  - All
   - 手动切换
   - 自动选择
   - DIRECT
@@ -112,7 +111,6 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
   proxies:
-  - All
   - 手动切换
   - 自动选择
   - DIRECT
@@ -120,7 +118,6 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
   proxies:
-  - All
   - 手动切换
   - 自动选择
   - DIRECT
@@ -128,7 +125,6 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
   proxies:
-  - All
   - 手动切换
   - 自动选择
   - DIRECT
@@ -149,7 +145,6 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
   proxies:
-  - All
   - 手动切换
   - 自动选择
   - DIRECT
@@ -164,7 +159,6 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
   proxies:
-  - All
   - 手动切换
   - 自动选择
   - DIRECT
