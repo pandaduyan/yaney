@@ -93,12 +93,6 @@ proxies:
   port: 39000
   tls: false
   skip-cert-verify: true
-- name: 解锁灰色8
-  type: http
-  server: LOLICO.ME
-  port: 443
-  tls: false
-  skip-cert-verify: true
 proxy-groups:
 - name: 手动切换
   type: select
@@ -182,7 +176,6 @@ proxy-groups:
   - 解锁灰色5
   - 解锁灰色6
   - 解锁灰色7
-  - 解锁灰色8
 - name: 哔哩哔哩
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
