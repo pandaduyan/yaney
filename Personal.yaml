@@ -89,7 +89,7 @@ proxies:
   skip-cert-verify: true
 - name: 解锁灰色7
   type: http
-  server: music.lolico.me
+  server: MUSIC.LOLICO.ME
   port: 39000
   tls: false
   skip-cert-verify: true
