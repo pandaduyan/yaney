@@ -6,15 +6,15 @@ log-level: info
 ipv6: true
 external-controller: 127.0.0.1:9090
 proxy-providers:
-  All:
-    type: http
-    url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
-    interval: 3600
-    path: ./all.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
+  #All:
+   # type: http
+   # url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
+   # interval: 3600
+   # path: ./all.yaml
+   # health-check:
+   #   enable: true
+   #  interval: 600
+   #   url: http://www.gstatic.com/generate_204
   Github:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg&list=true&udp=true"
@@ -57,20 +57,110 @@ proxies:
   port: 19980
   tls: false
   skip-cert-verify: true
+- name: 一键连 1
+  type: http
+  server: 183.240.9.28
+  port: 29979
+  username: 442993652168396800
+  password: 2ef91648-089f-4c81-b34d-06f072ec51dd
+  tls: true
+  skip-cert-verify: true
+- name: 一键连 2
+  type: http
+  server: 183.240.9.28
+  port: 29980
+  username: 442993652168396800
+  password: 2ef91648-089f-4c81-b34d-06f072ec51dd
+  tls: true
+  skip-cert-verify: true
+- name: 一键连 3
+  type: http
+  server: 183.240.9.28
+  port: 29982
+  username: 442993652168396800
+  password: 2ef91648-089f-4c81-b34d-06f072ec51dd
+  tls: true
+  skip-cert-verify: true
+- name: 一键连 4
+  type: http
+  server: 183.240.9.28
+  port: 29983
+  username: 442993652168396800
+  password: 2ef91648-089f-4c81-b34d-06f072ec51dd
+  tls: true
+  skip-cert-verify: true
+- name: 一键连 5
+  type: http
+  server: 183.240.9.28
+  port: 29984
+  username: 442993652168396800
+  password: 2ef91648-089f-4c81-b34d-06f072ec51dd
+  tls: true
+  skip-cert-verify: true
+- name: 一键连 6
+  type: http
+  server: 183.240.9.28
+  port: 29987
+  username: 442993652168396800
+  password: 2ef91648-089f-4c81-b34d-06f072ec51dd
+  tls: true
+  skip-cert-verify: true
+- name: 一键连 7
+  type: http
+  server: 183.240.9.28
+  port: 29988
+  username: 442993652168396800
+  password: 2ef91648-089f-4c81-b34d-06f072ec51dd
+  tls: true
+  skip-cert-verify: true
+- name: 一键连 8
+  type: http
+  server: 120.232.251.206
+  port: 29979
+  username: 442993652168396800
+  password: 2ef91648-089f-4c81-b34d-06f072ec51dd
+  tls: true
+  skip-cert-verify: true
+- name: 一键连 9
+  type: http
+  server: 120.232.251.206
+  port: 29980
+  username: 442993652168396800
+  password: 2ef91648-089f-4c81-b34d-06f072ec51dd
+  tls: true
+  skip-cert-verify: true
+- name: 一键连 10
+  type: http
+  server: jc.ap.fastqvpn.com
+  port: 29980
+  username: 442993652168396800
+  password: 2ef91648-089f-4c81-b34d-06f072ec51dd
+  tls: true
+  skip-cert-verify: true
 proxy-groups:
 - name: 手动切换
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
   use:
-  - All
+ # - All
   - Github
+  - 一键连 1
+  - 一键连 2
+  - 一键连 3
+  - 一键连 4
+  - 一键连 5
+  - 一键连 6
+  - 一键连 7
+  - 一键连 8
+  - 一键连 9
+  - 一键连 10
   proxies:
   - 自动选择
 - name: 自动选择
   type: url-test
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
   use:
-  - All
+ # - All
   - Github
   url: "http://www.gstatic.com/generate_204"
   interval: 300
