@@ -22,7 +22,7 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
- 一键链: 
+ ALL: 
     type: http
     url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
     # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；
@@ -99,6 +99,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     use:
       - All
+      - OPENIT
     proxies:
       - 自动选择
 
@@ -106,7 +107,8 @@ proxy-groups:
     type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
     use: 
-       - All
+      - All
+      - OPENIT
     url: "http://www.gstatic.com/generate_204"
     interval: 300
       
