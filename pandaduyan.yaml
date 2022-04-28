@@ -1,0 +1,457 @@
+# 将proxy-providers里面链接中的“你的订阅链接”替换即可
+
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: true
+external-controller: 127.0.0.1:9090
+
+proxy-providers:
+
+  #全部节点
+  One-click:
+    type: http
+    url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
+    # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；
+    # 或者将Clash订阅链接替换掉整个引号""内的链接
+    interval: 3600
+    path: ./One-click.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+ OPENIT: &OPENIT #建立锚点
+    type: http
+    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/yu-steven/openit/main/long&list=true&udp=true"
+    # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；
+    # 或者将Clash订阅链接替换掉整个引号""内的链接
+    interval: 3600
+    path: ./OPENIT.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204  
+
+  #美国节点    
+  US:
+    <<: *&OPENIT #引用锚点内容
+    filter: 美|🇺🇲|US|(?i)States|American
+    
+  #香港节点
+  HK:
+    <<: *OPENIT
+    filter: 港|🇭🇰|HK|(?i)Hong
+
+  #日本节点
+  JP:
+    <<: *OPENIT
+    filter: 日|🇯🇵|东京|JP|(?i)Japan
+ 
+  #台湾节点
+  TW:
+    <<: *OPENIT
+    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
+    
+  #澳大利亚节点
+  AU:
+    <<: *OPENIT
+    filter: 澳|🇦🇺|🇹🇼|大利亚|AU|(?i)AU
+        
+   #狮城节点
+  SG:
+    <<: *OPENIT
+    filter: 新|🇸🇬|🇹🇼|加坡|SG|(?i)SG
+   
+dns:
+  enable: true
+  ipv6: true
+  listen: 0.0.0.0:53
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - '*.lan'
+    - localhost.ptlogin2.qq.com
+    - '+.srv.nintendo.net'
+    - '+.stun.playstation.net'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    - '+.xboxlive.com'
+    - 'msftconnecttest.com'
+    - 'xbox.*.microsoft.com'
+    - '*.battlenet.com.cn'
+    - '*.battlenet.com'
+    - '*.blzstatic.cn'
+    - '*.battle.net'
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+
+proxies:
+- name: 网易云解锁
+  type: http
+  server: SALVAN.ICU
+  port: 19980
+  tls: false
+  skip-cert-verify: true
+proxy-groups:
+  - name: 手动切换
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+    use:
+      - All
+      - OPENIT
+    proxies:
+      - 自动选择
+      
+  - name: 自动选择
+    type: url-test
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
+    use: 
+       - All
+       - OPENIT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+      
+  - name: YouTube
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+    proxies:
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+      - DIRECT
+
+  - name: NETFLIX
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+    proxies:
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+      - DIRECT
+
+  - name: Disney+
+    type: select
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/DisneyPlus.png
+    proxies:
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+      - DIRECT
+
+  - name: 巴哈姆特
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png
+    proxies:
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+      - 自动选择
+      - 手动切换
+      - DIRECT
+
+  - name: AdBlock
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+    proxies:
+      - REJECT
+
+  - name: 国外网站
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+    proxies:
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+      - DIRECT
+
+  - name: 苹果服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+    proxies:
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+      - DIRECT
+
+  - name: 微软服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+    proxies:
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+      - DIRECT
+
+  - name: 网易音乐
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
+    proxies:
+      - DIRECT
+      - 网易云解锁
+
+  - name: 哔哩哔哩
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
+    proxies:
+      - DIRECT
+      - 自动选择
+      - 手动切换
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+
+  - name: 游戏平台
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+    proxies:
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+      - DIRECT
+
+  - name: 国内网站
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
+    proxies:
+      - DIRECT
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+
+  - name: 漏网之鱼
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+    proxies:
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 澳大利亚节点
+      - 新加坡节点
+      - DIRECT
+
+  - name: 香港节点
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    use:
+      - HK
+    proxies:
+      - DIRECT
+
+  - name: 日本节点
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+    use:
+      - JP
+    proxies:
+      - DIRECT
+     
+  - name: 台湾节点
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+    use:
+      - TW
+    proxies:
+      - DIRECT
+
+  - name: 美国节点
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+    use:
+      - US
+    proxies:
+      - DIRECT
+      
+  - name: 澳大利亚节点
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AU.png
+    use:
+      - AU
+    proxies:
+      - DIRECT
+  - name: 新加坡节点
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
+    use:
+      - SG
+    proxies:
+      - DIRECT   
+rule-providers:
+
+  Direct:
+    type: http
+    behavior: classical
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  Adblock-Domain:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml"
+    path: ./ruleset/AdDomain.yaml
+    interval: 86400
+        
+  YouTube:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
+    path: ./ruleset/YouTube.yaml
+    interval: 86400
+
+  Netflix:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml"
+    path: ./ruleset/Netflix.yaml
+    interval: 86400
+
+  Disney:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml"
+    path: ./ruleset/Disney.yaml
+    interval: 86400
+
+  Bahamut:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.yaml"
+    path: ./ruleset/Bahamut.yaml
+    interval: 86400
+
+  Apple:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml"
+    path: ./ruleset/Apple.yaml
+    interval: 86400
+
+  Microsoft:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml"
+    path: ./ruleset/Microsoft.yaml
+    interval: 86400
+
+  NetEaseMusic:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEaseMusic/NetEaseMusic.yaml"
+    path: ./ruleset/NetEaseMusic.yaml
+    interval: 86400
+
+  BiliBili:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml"
+    path: ./ruleset/BiliBili.yaml
+    interval: 86400
+
+  Game:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.yaml"
+    path: ./ruleset/Game.yaml
+    interval: 86400
+
+  China:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.yaml"
+    path: ./ruleset/China.yaml
+    interval: 86400
+
+  Global:
+    type: http
+    behavior: classical
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.yaml"
+    path: ./ruleset/Global.yaml
+    interval: 86400
+
+  Global-Domain:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Domain.yaml"
+    path: ./ruleset/Global-Domain.yaml
+    interval: 86400
+
+  Lan:
+    type: http
+    behavior: classical
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml"
+    path: ./ruleset/lan.yaml
+    interval: 86400
+    
+rules:
+  - RULE-SET,Direct,DIRECT
+  - RULE-SET,Adblock-Domain,AdBlock
+  - RULE-SET,YouTube,YouTube
+  - RULE-SET,Netflix,NETFLIX
+  - RULE-SET,Disney,Disney+
+  - RULE-SET,Bahamut,巴哈姆特
+  - RULE-SET,Apple,苹果服务
+  - RULE-SET,Microsoft,微软服务
+  - RULE-SET,NetEaseMusic,网易音乐
+  - RULE-SET,BiliBili,哔哩哔哩
+  - RULE-SET,Game,游戏平台
+  - RULE-SET,Global,国外网站
+  - RULE-SET,Global-Domain,国外网站
+  - RULE-SET,China,国内网站
+  - RULE-SET,Lan,DIRECT
+  - GEOIP,CN,国内网站
+  - MATCH,漏网之鱼
