@@ -1,5 +1,3 @@
-# 将proxy-providers里面链接中的“你的订阅链接”替换即可
-
 mixed-port: 7890
 allow-lan: true
 bind-address: '*'
@@ -9,22 +7,19 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 
 proxy-providers:
-
-  #全部节点
-  OPENIT: &OPENIT #建立锚点
+  Github: 
     type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/yu-steven/openit/main/long&list=true&udp=true"
-    # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；
-    # 或者将Clash订阅链接替换掉整个引号""内的链接
+    url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
     interval: 3600
-    path: ./OPENIT.yaml
+    path: ./Github.yaml
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
- ALL: 
+  #全部节点
+  All: &All #建立锚点
     type: http
-    url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
+    url: "https://api.v1.mk/sub?target=clash&url=https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/yu-steven/openit/main/long&list=true&udp=true"
     # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；
     # 或者将Clash订阅链接替换掉整个引号""内的链接
     interval: 3600
@@ -34,35 +29,30 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204
 
+  #狮城节点    
+  SG:
+    <<: *All #引用锚点内容
+    filter: 新|🇸🇬|SG
+    
   #美国节点    
   US:
-    <<: *OPENIT #引用锚点内容
+    <<: *All #引用锚点内容
     filter: 美|🇺🇲|US|(?i)States|American
     
   #香港节点
   HK:
-    <<: *OPENIT
+    <<: *All
     filter: 港|🇭🇰|HK|(?i)Hong
 
   #日本节点
   JP:
-    <<: *OPENIT
+    <<: *All
     filter: 日|🇯🇵|东京|JP|(?i)Japan
  
   #台湾节点
   TW:
-    <<: *OPENIT
+    <<: *All
     filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
-    
-  #狮城节点
-  TW:
-    <<: *OPENIT
-    filter: 新|🇸🇬|狮|SG|(?i)SG
-    
-  #澳大利亚节点
-  AU:
-    <<: *OPENIT
-    filter: 澳|🇦🇺|AU
    
 dns:
   enable: true
@@ -92,14 +82,19 @@ dns:
     - https://dns.alidns.com/dns-query
 
 proxies:
-            
+   - name: 解锁灰色
+     type: http
+     server: SALVAN.ICU
+     port: 19980
+     tls: false
+     skip-cert-verify: true
 proxy-groups:
   - name: 手动切换
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     use:
+      - Github
       - All
-      - OPENIT
     proxies:
       - 自动选择
 
@@ -107,8 +102,8 @@ proxy-groups:
     type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
     use: 
-      - All
-      - OPENIT
+       - Github
+       - All
     url: "http://www.gstatic.com/generate_204"
     interval: 300
       
@@ -123,7 +118,6 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
-      - 澳大利亚节点
       - DIRECT
 
   - name: NETFLIX
@@ -137,7 +131,6 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
-      - 澳大利亚节点
       - DIRECT
 
   - name: Disney+
@@ -151,7 +144,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
-      - 澳大利亚节点
+      
       - DIRECT
 
   - name: 巴哈姆特
@@ -163,7 +156,6 @@ proxy-groups:
       - 日本节点
       - 美国节点
       - 狮城节点
-      - 澳大利亚节点
       - 自动选择
       - 手动切换
       - DIRECT
@@ -185,7 +177,6 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
-      - 澳大利亚节点
       - DIRECT
 
   - name: 苹果服务
@@ -199,7 +190,6 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
-      - 澳大利亚节点
       - DIRECT
 
   - name: 微软服务
@@ -213,7 +203,6 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
-      - 澳大利亚节点
       - DIRECT
 
   - name: 网易音乐
@@ -221,6 +210,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
     proxies:
       - DIRECT
+      - 解锁灰色
 
   - name: 哔哩哔哩
     type: select
@@ -234,7 +224,6 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
-      - 澳大利亚节点
 
   - name: 游戏平台
     type: select
@@ -247,7 +236,6 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
-      - 澳大利亚节点
       - DIRECT
 
   - name: 国内网站
@@ -262,7 +250,6 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
-      - 澳大利亚节点
 
   - name: 漏网之鱼
     type: select
@@ -274,6 +261,7 @@ proxy-groups:
       - 日本节点
       - 美国节点
       - 台湾节点
+      - 狮城节点
       - DIRECT
 
   - name: 香港节点
@@ -315,13 +303,7 @@ proxy-groups:
       - SG
     proxies:
       - DIRECT
-  - name: 澳大利亚节点
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AU.png
-    use:
-      - AU
-    proxies:
-      - DIRECT
+
 rule-providers:
 
   Direct:
