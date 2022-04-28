@@ -57,12 +57,12 @@ proxy-providers:
   #澳大利亚节点
   AU:
     <<: *OPENIT
-    filter: 澳|🇦🇺|🇹🇼|大利亚|AU|(?i)AU
+    filter: 澳|🇦🇺|AU|(?i)AU
         
    #狮城节点
   SG:
     <<: *OPENIT
-    filter: 新|🇸🇬|🇹🇼|加坡|SG|(?i)SG
+    filter: 新|🇸🇬|狮城|SG|(?i)SG
    
 dns:
   enable: true
