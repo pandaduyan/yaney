@@ -92,12 +92,6 @@ dns:
     - https://dns.alidns.com/dns-query
 
 proxies:
-- name: 网易云解锁
-  type: http
-  server: SALVAN.ICU
-  port: 19980
-  tls: false
-  skip-cert-verify: true
 proxy-groups:
   - name: 手动切换
     type: select
@@ -226,7 +220,6 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
     proxies:
       - DIRECT
-      - 网易云解锁
 
   - name: 哔哩哔哩
     type: select
