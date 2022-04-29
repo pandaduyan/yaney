@@ -29,6 +29,11 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204
 
+  #韩国节点    
+  KR:
+    <<: *All #引用锚点内容
+    filter: 韩|🇰🇷|KR
+    
   #狮城节点    
   SG:
     <<: *All #引用锚点内容
@@ -118,6 +123,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点
       - DIRECT
 
   - name: NETFLIX
@@ -131,6 +137,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点
       - DIRECT
 
   - name: Disney+
@@ -144,7 +151,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
-      
+      - 韩国节点
       - DIRECT
 
   - name: 巴哈姆特
@@ -156,6 +163,7 @@ proxy-groups:
       - 日本节点
       - 美国节点
       - 狮城节点
+      - 韩国节点
       - 自动选择
       - 手动切换
       - DIRECT
@@ -177,6 +185,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点
       - DIRECT
 
   - name: 苹果服务
@@ -190,6 +199,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点
       - DIRECT
 
   - name: 微软服务
@@ -203,6 +213,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点 
       - DIRECT
 
   - name: 网易音乐
@@ -224,6 +235,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点 
 
   - name: 游戏平台
     type: select
@@ -236,6 +248,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点
       - DIRECT
 
   - name: 国内网站
@@ -250,6 +263,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点
 
   - name: 漏网之鱼
     type: select
@@ -262,47 +276,56 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点  
       - DIRECT
 
   - name: 香港节点
-    type: select
+    type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     use:
       - HK
-    proxies:
-      - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
 
   - name: 日本节点
-    type: select
+    type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
     use:
       - JP
-    proxies:
-      - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
      
   - name: 台湾节点
-    type: select
+    type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
     use:
       - TW
-    proxies:
-      - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
 
   - name: 美国节点
-    type: select
+    type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
     use:
       - US
-    proxies:
-      - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
       
   - name: 狮城节点
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
+    type: url-test
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
     use:
       - SG
-    proxies:
-      - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
+      
+  - name: 韩国节点
+    type: url-test
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+    use:
+      - KR
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
 
 rule-providers:
 
