@@ -52,7 +52,7 @@ proxy-providers:
   #日本节点
   JP:
     <<: *All
-    filter: 日|🇯🇵|东京|JP|(?i)Japan
+    filter: 日本|🇯🇵|东京|JP|(?i)Japan
  
   #台湾节点
   TW:
