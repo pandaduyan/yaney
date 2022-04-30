@@ -299,10 +299,14 @@ proxy-groups:
       - HK
     proxies:
       - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
   - name: 🇯🇵 日本节点
     type: select
     use:
       - JP
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
     proxies:
       - DIRECT
   - name: 🇨🇳 台湾节点
@@ -311,25 +315,32 @@ proxy-groups:
       - TW
     proxies:
       - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
   - name: 🇺🇲 美国节点
     type: select
     use:
       - US
     proxies:
       - DIRECT
-
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
   - name: 🇸🇬 狮城节点
     type: select
     use:
       - SG
     proxies:
       - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
   - name: 🇰🇷 韩国节点
     type: select
     use:
-      - KP
+      - KR
     proxies:
       - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
 rule-providers:
 
   Direct:
