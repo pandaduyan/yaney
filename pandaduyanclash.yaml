@@ -49,7 +49,7 @@ proxy-providers:
   US:
     type: file
     path: ./all.yaml
-    filter: 美|US|(?i)States|American
+    filter: 美|US|(?i)States|American|
     health-check:
       enable: true
       interval: 120
@@ -76,7 +76,7 @@ proxy-providers:
   SG:
     type: file
     path: ./all.yaml
-    filter: 新|狮城|SG
+    filter: 新|狮城|SG|(?i)Singapore
     health-check:
       enable: true
       interval: 120
