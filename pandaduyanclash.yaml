@@ -69,7 +69,7 @@ proxy-providers:
   KP:
     type: file
     path: ./all.yaml
-    filter: 韩|KP|Korea|American
+    filter: 韩|KP|Korea
     health-check:
       enable: true
       interval: 120
