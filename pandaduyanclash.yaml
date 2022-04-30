@@ -127,6 +127,7 @@ proxy-groups:
     type: select
     use:
       - All
+      - Github
     proxies:
       - ✈️ 自动选择
 
@@ -134,6 +135,7 @@ proxy-groups:
     type: url-test
     use: 
        - All
+       - Github
     url: "http://www.gstatic.com/generate_204"
     interval: 300
 
