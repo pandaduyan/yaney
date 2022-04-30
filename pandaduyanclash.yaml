@@ -66,10 +66,10 @@ proxy-providers:
       interval: 120
       url: http://www.gstatic.com/generate_204
  #韩国节点
-  KP:
+  KR:
     type: file
     path: ./all.yaml
-    filter: 韩|KP|Korea
+    filter: 韩|KR|Korea
     health-check:
       enable: true
       interval: 120
