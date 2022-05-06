@@ -24,7 +24,16 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-
+      
+  Music:
+    type: http
+    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/nameking77/Qx/main/music/wyy.txt&list=true&udp=true"
+    interval: 3600
+    path: ./proxy/NetEaseMusic.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://apm3.music.163.com
   #美国节点    
   US:
     <<: *All #引用锚点内容
@@ -222,6 +231,7 @@ proxy-groups:
     proxies:
       - DIRECT
       - 🎵 解锁灰色
+      - Music
 
   - name: 哔哩哔哩
     type: select
