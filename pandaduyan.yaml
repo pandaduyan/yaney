@@ -27,6 +27,61 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
+  #香港节点     
+  HK:
+    type: file
+    path: ./all.yaml
+    filter: 港|HK|(?i)Hong
+    health-check:
+      enable: true
+      interval: 120
+      url: http://www.gstatic.com/generate_204
+ #日本节点
+  JP:
+    type: file
+    path: ./all.yaml
+    filter: 日|东京|JP|(?i)Japan
+    health-check:
+      enable: true
+      interval: 120
+      url: http://www.gstatic.com/generate_204
+ #美国节点
+  US:
+    type: file
+    path: ./all.yaml
+    filter: 美|US|(?i)States|American|
+    health-check:
+      enable: true
+      interval: 120
+      url: http://www.gstatic.com/generate_204
+ #台湾节点
+  TW:
+    type: file
+    path: ./all.yaml
+    filter: 台|湾|TW|(?i)Taiwan
+    health-check:
+      enable: true
+      interval: 120
+      url: http://www.gstatic.com/generate_204
+ #韩国节点
+  KR:
+    type: file
+    path: ./all.yaml
+    filter: 韩|KR|Korea
+    health-check:
+      enable: true
+      interval: 120
+      url: http://www.gstatic.com/generate_204
+ #新加坡节点
+  SG:
+    type: file
+    path: ./all.yaml
+    filter: 新|狮城|SG|(?i)Singapore
+    health-check:
+      enable: true
+      interval: 120
+      url: http://www.gstatic.com/generate_204
+      
       
 dns:
   enable: true
@@ -86,7 +141,13 @@ proxy-groups:
     type: select
     proxies:
       - 🚀 手动切换
-      - ✈️ 自动选择     
+      - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点     
       - DIRECT
 
   - name: 🎬 NETFLIX
@@ -94,6 +155,12 @@ proxy-groups:
     proxies:
       - 🚀 手动切换
       - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点 
       - DIRECT
 
   - name: 🎬 Disney+
@@ -101,11 +168,23 @@ proxy-groups:
     proxies:
       - 🚀 手动切换
       - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点
       - DIRECT
 
   - name: 🎬 巴哈姆特
     type: select
     proxies:
+      - 🇨🇳 台湾节点
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点
       - ✈️ 自动选择
       - 🚀 手动切换
       - DIRECT
@@ -121,6 +200,12 @@ proxy-groups:
     proxies:
       - 🚀 手动切换
       - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点
       - DIRECT
 
   - name: 🍎 苹果服务
@@ -129,6 +214,12 @@ proxy-groups:
       - DIRECT
       - 🚀 手动切换
       - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点
 
   - name: 🧩 微软服务
     type: select
@@ -136,6 +227,12 @@ proxy-groups:
       - DIRECT
       - 🚀 手动切换
       - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点
 
   - name: 🎶 网易音乐
     type: select
@@ -149,6 +246,12 @@ proxy-groups:
       - DIRECT
       - 🚀 手动切换
       - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点
 
   - name: 🎮 游戏平台
     type: select
@@ -156,6 +259,12 @@ proxy-groups:
       - 🚀 手动切换
       - DIRECT
       - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点
 
   - name: 🌏 国内网站
     type: select
@@ -163,6 +272,12 @@ proxy-groups:
       - DIRECT
       - 🚀 手动切换
       - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点
 
   - name: 🐟 漏网之鱼
     type: select
@@ -170,6 +285,48 @@ proxy-groups:
       - 🚀 手动切换
       - DIRECT
       - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城节点
+  - name: 🇭🇰 香港节点
+    type: select
+    use:
+      - HK
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+  - name: 🇯🇵 日本节点
+    type: select
+    use:
+      - JP
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
+  - name: 🇨🇳 台湾节点
+    type: select
+    use:
+      - TW
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
+  - name: 🇺🇲 美国节点
+    type: select
+    use:
+      - US
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
+  - name: 🇸🇬 狮城节点
+    type: select
+    use:
+      - SG
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
+  - name: 🇰🇷 韩国节点
+    type: select
+    use:
+      - KR
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
 rule-providers:
 
   Direct:
