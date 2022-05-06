@@ -50,13 +50,13 @@ proxy-providers:
   #韩国节点
   KR:
     type: file
-    path: ./All.yaml
+    <<: *All
     filter: 韩|KR|🇰🇷|Korea
     
   #新加坡节点
   SG:
     type: file
-    path: ./All.yaml
+    <<: *All
     filter: 新|狮城|🇸🇬|SG|(?i)Singapore
 
    
