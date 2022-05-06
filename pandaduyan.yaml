@@ -96,7 +96,7 @@ proxies:
      skip-cert-verify: true
      
 proxy-groups:
-  - name: 🚀 手动切换
+  - name: 手动切换
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     use:
@@ -105,7 +105,7 @@ proxy-groups:
     proxies:
       - ✈️ 自动选择
 
-  - name: 🔰 自动选择
+  - name: 自动选择
     type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
     use: 
@@ -114,7 +114,7 @@ proxy-groups:
     url: "http://www.gstatic.com/generate_204"
     interval: 300
       
-  - name: 🎬 YouTube
+  - name: YouTube
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
     proxies:
@@ -128,7 +128,7 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - DIRECT
 
-  - name: 🎬 NETFLIX
+  - name: NETFLIX
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
     proxies:
@@ -142,7 +142,7 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - DIRECT
 
-  - name: 🎬 Disney+
+  - name: Disney+
     type: select
     icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/DisneyPlus.png
     proxies:
@@ -156,7 +156,7 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - DIRECT
 
-  - name: 🎬 巴哈姆特
+  - name: 巴哈姆特
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png
     proxies:
@@ -170,13 +170,13 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - DIRECT
 
-  - name: 🆎 AdBlock
+  - name: AdBlock
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
     proxies:
       - REJECT
 
-  - name: 🌏 国外网站
+  - name: 国外网站
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
     proxies:
@@ -190,7 +190,7 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - DIRECT
 
-  - name: 🍎 苹果服务
+  - name: 苹果服务
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     proxies:
@@ -204,7 +204,7 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - DIRECT
 
-  - name: 🧩 微软服务
+  - name: 微软服务
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
     proxies:
@@ -218,14 +218,14 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - DIRECT
 
-  - name: 🎶 网易音乐
+  - name: 网易音乐
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
     proxies:
       - DIRECT
       - 🎵 解锁灰色
 
-  - name: 🎬 哔哩哔哩
+  - name: 哔哩哔哩
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
     proxies:
@@ -239,7 +239,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🇸🇬 狮城节点
 
-  - name: 🎮 游戏平台
+  - name: 游戏平台
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
     proxies:
@@ -253,7 +253,7 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - DIRECT
 
-  - name: 🌏 国内网站
+  - name: 国内网站
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
     proxies:
@@ -267,7 +267,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🇸🇬 狮城节点
 
-  - name: 🐟 漏网之鱼
+  - name: 漏网之鱼
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
     proxies:
@@ -432,19 +432,19 @@ rule-providers:
     
 rules:
   - RULE-SET,Direct,DIRECT
-  - RULE-SET,Adblock-Domain,🆎 AdBlock
-  - RULE-SET,YouTube,🎬 YouTube
-  - RULE-SET,Netflix,🎬 NETFLIX
-  - RULE-SET,Disney,🎬 Disney+
-  - RULE-SET,Bahamut,🎬 巴哈姆特
-  - RULE-SET,Apple,🍎 苹果服务
-  - RULE-SET,Microsoft,🧩 微软服务
-  - RULE-SET,NetEaseMusic,🎶 网易音乐
-  - RULE-SET,BiliBili,🎬 哔哩哔哩
-  - RULE-SET,Game,🎮 游戏平台
-  - RULE-SET,Global,🌏 国外网站
-  - RULE-SET,Global-Domain,🌏 国外网站
-  - RULE-SET,China,🌏 国内网站
+  - RULE-SET,Adblock-Domain,AdBlock
+  - RULE-SET,YouTube,YouTube
+  - RULE-SET,Netflix,NETFLIX
+  - RULE-SET,Disney,Disney+
+  - RULE-SET,Bahamut,巴哈姆特
+  - RULE-SET,Apple,苹果服务
+  - RULE-SET,Microsoft,微软服务
+  - RULE-SET,NetEaseMusic,网易音乐
+  - RULE-SET,BiliBili,哔哩哔哩
+  - RULE-SET,Game,游戏平台
+  - RULE-SET,Global,国外网站
+  - RULE-SET,Global-Domain,国外网站
+  - RULE-SET,China,国内网站
   - RULE-SET,Lan,DIRECT
-  - GEOIP,CN,🌏 国内网站
-  - MATCH,🐟 漏网之鱼
+  - GEOIP,CN,国内网站
+  - MATCH,漏网之鱼
