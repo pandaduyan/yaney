@@ -7,7 +7,7 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 
 proxy-providers:
-  Github: &github 
+  Github: &Github 
     type: http
     url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
     interval: 3600
@@ -50,13 +50,13 @@ proxy-providers:
   #韩国节点
   KR:
     type: file
-    path: ./all.yaml
+    path: ./All.yaml
     filter: 韩|KR|🇰🇷|Korea
     
   #新加坡节点
   SG:
     type: file
-    path: ./all.yaml
+    path: ./All.yaml
     filter: 新|狮城|🇸🇬|SG|(?i)Singapore
 
    
