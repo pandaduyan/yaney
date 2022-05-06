@@ -1,4 +1,3 @@
-# 将proxy-providers里面链接中的“你的订阅链接”全部替换即可
 mixed-port: 7890
 allow-lan: true
 bind-address: '*'
@@ -8,17 +7,17 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 
 proxy-providers:
- #全部节点
-  Github: 
+  Github: &github 
     type: http
     url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
     interval: 3600
-    path: ./Github.yaml
+    path: ./github.yaml
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  All: &all
+  #全部节点
+  All: &All 
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/yu-steven/openit/main/long&list=true&udp=true"
     interval: 3600
@@ -27,62 +26,40 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  #香港节点     
-  HK:
-    type: file
-    path: ./all.yaml
-    filter: 港|HK|(?i)Hong
-    health-check:
-      enable: true
-      interval: 120
-      url: http://www.gstatic.com/generate_204
- #日本节点
-  JP:
-    type: file
-    path: ./all.yaml
-    filter: 日|东京|JP|(?i)Japan
-    health-check:
-      enable: true
-      interval: 120
-      url: http://www.gstatic.com/generate_204
- #美国节点
+
+  #美国节点    
   US:
-    type: file
-    path: ./all.yaml
-    filter: 美|US|(?i)States|American|
-    health-check:
-      enable: true
-      interval: 120
-      url: http://www.gstatic.com/generate_204
- #台湾节点
+    <<: *All #引用锚点内容
+    filter: 美|🇺🇲|US|(?i)States|American
+    
+  #香港节点
+  HK:
+    <<: *All
+    filter: 港|🇭🇰|HK|(?i)Hong
+
+  #日本节点
+  JP:
+    <<: *All
+    filter: 日|🇯🇵|东京|JP|(?i)Japan
+ 
+  #台湾节点
   TW:
-    type: file
-    path: ./all.yaml
-    filter: 台|湾|TW|(?i)Taiwan
-    health-check:
-      enable: true
-      interval: 120
-      url: http://www.gstatic.com/generate_204
- #韩国节点
+    <<: *All
+    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
+    
+  #韩国节点
   KR:
     type: file
     path: ./all.yaml
-    filter: 韩|KR|Korea
-    health-check:
-      enable: true
-      interval: 120
-      url: http://www.gstatic.com/generate_204
- #新加坡节点
+    filter: 韩|KR|🇰🇷|Korea
+    
+  #新加坡节点
   SG:
     type: file
     path: ./all.yaml
-    filter: 新|狮城|SG|(?i)Singapore
-    health-check:
-      enable: true
-      interval: 120
-      url: http://www.gstatic.com/generate_204
-      
-      
+    filter: 新|狮城|🇸🇬|SG|(?i)Singapore
+
+   
 dns:
   enable: true
   ipv6: true
@@ -90,7 +67,6 @@ dns:
   default-nameserver:
     - 119.29.29.29
     - 223.5.5.5
-    - 8.8.4.4
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -110,8 +86,7 @@ dns:
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-    - https://dns.google/dns-query
-    
+
 proxies:
    - name: 🎵 解锁灰色
      type: http
@@ -119,55 +94,60 @@ proxies:
      port: 19980
      tls: false
      skip-cert-verify: true
-            
+     
 proxy-groups:
   - name: 🚀 手动切换
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     use:
       - Github
       - All
     proxies:
       - ✈️ 自动选择
 
-  - name: ✈️ 自动选择
+  - name: 🔰 自动选择
     type: url-test
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
     use: 
-       - Github
-       - All
+      - Github
+      - All
     url: "http://www.gstatic.com/generate_204"
     interval: 300
-
+      
   - name: 🎬 YouTube
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
     proxies:
       - 🚀 手动切换
-      - ✈️ 自动选择
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
-      - 🇸🇬 狮城节点     
+      - 🇸🇬 狮城节点
       - DIRECT
 
   - name: 🎬 NETFLIX
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
     proxies:
       - 🚀 手动切换
-      - ✈️ 自动选择
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
-      - 🇸🇬 狮城节点 
+      - 🇸🇬 狮城节点
       - DIRECT
 
   - name: 🎬 Disney+
     type: select
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/DisneyPlus.png
     proxies:
       - 🚀 手动切换
-      - ✈️ 自动选择
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
@@ -178,28 +158,30 @@ proxy-groups:
 
   - name: 🎬 巴哈姆特
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png
     proxies:
-      - 🇨🇳 台湾节点
+      - 🚀 手动切换
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
       - 🇸🇬 狮城节点
-      - ✈️ 自动选择
-      - 🚀 手动切换
       - DIRECT
 
   - name: 🆎 AdBlock
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
     proxies:
       - REJECT
-      - 🚀 手动切换
 
   - name: 🌏 国外网站
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
     proxies:
       - 🚀 手动切换
-      - ✈️ 自动选择
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
@@ -210,42 +192,46 @@ proxy-groups:
 
   - name: 🍎 苹果服务
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     proxies:
-      - DIRECT
       - 🚀 手动切换
-      - ✈️ 自动选择
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
       - 🇸🇬 狮城节点
+      - DIRECT
 
   - name: 🧩 微软服务
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
     proxies:
-      - DIRECT
       - 🚀 手动切换
-      - ✈️ 自动选择
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
       - 🇸🇬 狮城节点
+      - DIRECT
 
   - name: 🎶 网易音乐
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
     proxies:
       - DIRECT
       - 🎵 解锁灰色
 
   - name: 🎬 哔哩哔哩
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
     proxies:
       - DIRECT
       - 🚀 手动切换
-      - ✈️ 自动选择
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
@@ -255,23 +241,25 @@ proxy-groups:
 
   - name: 🎮 游戏平台
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
     proxies:
       - 🚀 手动切换
-      - DIRECT
-      - ✈️ 自动选择
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
       - 🇸🇬 狮城节点
+      - DIRECT
 
   - name: 🌏 国内网站
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
     proxies:
       - DIRECT
       - 🚀 手动切换
-      - ✈️ 自动选择
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
@@ -281,52 +269,60 @@ proxy-groups:
 
   - name: 🐟 漏网之鱼
     type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
     proxies:
       - 🚀 手动切换
-      - DIRECT
-      - ✈️ 自动选择
+      - 🔰 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
       - 🇸🇬 狮城节点
+      - DIRECT
+
   - name: 🇭🇰 香港节点
     type: select
     use:
       - HK
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
+    proxies:
+      - DIRECT
+
   - name: 🇯🇵 日本节点
     type: select
     use:
       - JP
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300  
+    proxies:
+      - DIRECT
+     
   - name: 🇨🇳 台湾节点
     type: select
     use:
       - TW
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300  
+    proxies:
+      - DIRECT
+
   - name: 🇺🇲 美国节点
     type: select
     use:
       - US
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300  
-  - name: 🇸🇬 狮城节点
-    type: select
-    use:
-      - SG
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300  
+    proxies:
+      - DIRECT
+      
   - name: 🇰🇷 韩国节点
     type: select
     use:
       - KR
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300  
+    proxies:
+      - DIRECT
+
+  - name: 🇸🇬 狮城节点
+    type: select
+    use:
+      - SG
+    proxies:
+      - DIRECT
+      
 rule-providers:
 
   Direct:
@@ -336,11 +332,11 @@ rule-providers:
     path: ./ruleset/direct.yaml
     interval: 86400
 
-  adblock:
+  Adblock-Domain:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Classical.yaml"
-    path: ./ruleset/Advertising_Classical.yaml
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml"
+    path: ./ruleset/AdDomain.yaml
     interval: 86400
         
   YouTube:
@@ -378,18 +374,18 @@ rule-providers:
     path: ./ruleset/Apple.yaml
     interval: 86400
 
-  NetEaseMusic:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEaseMusic/NetEaseMusic.yaml"
-    path: ./ruleset/NetEaseMusic.yaml
-    interval: 86400
-    
   Microsoft:
     type: http
     behavior: classical
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml"
     path: ./ruleset/Microsoft.yaml
+    interval: 86400
+
+  NetEaseMusic:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEaseMusic/NetEaseMusic.yaml"
+    path: ./ruleset/NetEaseMusic.yaml
     interval: 86400
 
   BiliBili:
@@ -413,18 +409,30 @@ rule-providers:
     path: ./ruleset/China.yaml
     interval: 86400
 
-  Global_Classical:
+  Global:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@release/rule/Clash/Global/Global_Classical.yaml"
-    path: ./ruleset/Global_Classical.yaml
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.yaml"
+    path: ./ruleset/Global.yaml
     interval: 86400
 
+  Global-Domain:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Domain.yaml"
+    path: ./ruleset/Global-Domain.yaml
+    interval: 86400
 
-
+  Lan:
+    type: http
+    behavior: classical
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml"
+    path: ./ruleset/lan.yaml
+    interval: 86400
+    
 rules:
   - RULE-SET,Direct,DIRECT
-  - RULE-SET,adblock,🆎 AdBlock
+  - RULE-SET,Adblock-Domain,🆎 AdBlock
   - RULE-SET,YouTube,🎬 YouTube
   - RULE-SET,Netflix,🎬 NETFLIX
   - RULE-SET,Disney,🎬 Disney+
@@ -434,16 +442,9 @@ rules:
   - RULE-SET,NetEaseMusic,🎶 网易音乐
   - RULE-SET,BiliBili,🎬 哔哩哔哩
   - RULE-SET,Game,🎮 游戏平台
-  - RULE-SET,Global_Classical,🌏 国外网站
+  - RULE-SET,Global,🌏 国外网站
+  - RULE-SET,Global-Domain,🌏 国外网站
   - RULE-SET,China,🌏 国内网站
-  - IP-CIDR,192.168.0.0/16,DIRECT
-  - IP-CIDR,10.0.0.0/8,DIRECT
-  - IP-CIDR,172.16.0.0/12,DIRECT
-  - IP-CIDR,127.0.0.0/8,DIRECT
-  - IP-CIDR,100.64.0.0/10,DIRECT
-  - IP-CIDR,224.0.0.0/4,DIRECT
-  - IP-CIDR,fe80::/10,DIRECT
-  - IP-CIDR,119.28.28.28/32,DIRECT
-  - IP-CIDR,182.254.116.0/24,DIRECT
+  - RULE-SET,Lan,DIRECT
   - GEOIP,CN,🌏 国内网站
   - MATCH,🐟 漏网之鱼
