@@ -234,6 +234,7 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
     proxies:
+      - DIRECT
       - 🎵 解锁灰色1
       - 🎵 解锁灰色2
       - 🎵 解锁灰色3
