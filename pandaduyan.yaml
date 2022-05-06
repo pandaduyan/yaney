@@ -27,7 +27,7 @@ proxy-providers:
       
   Music:
     type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https://qxnav.com/rules/QuantumultX/gz/wyy.list&list=true&udp=true"
+    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/nameking77/Qx/main/music/wyy.txt&list=true&udp=true"
     interval: 3600
     path: ./proxy/NetEaseMusic.yaml
     health-check:
