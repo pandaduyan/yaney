@@ -11,7 +11,6 @@ proxy-providers:
     type: http
     url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
     interval: 3600
-    path: ./github.yaml
     health-check:
       enable: true
       interval: 600
@@ -21,7 +20,6 @@ proxy-providers:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/yu-steven/openit/main/long&list=true&udp=true"
     interval: 3600
-    path: ./all.yaml
     health-check:
       enable: true
       interval: 600
