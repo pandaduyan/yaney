@@ -30,34 +30,34 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
 
   #韩国节点    
-  KR:
-    <<: *All #引用锚点内容
-    filter: 韩|🇰🇷|KR|SG
+  #KR:
+    #<<: *All #引用锚点内容
+    #filter: 韩|🇰🇷|KR|SG
     
   #狮城节点    
-  SG:
-    <<: *All #引用锚点内容
-    filter: 新|🇸🇬|SG|(?i)Singapore
+  #SG:
+    #<<: *All #引用锚点内容
+    #filter: 新|🇸🇬|SG|(?i)Singapore
     
   #美国节点    
-  US:
-    <<: *All #引用锚点内容
-    filter: 美|🇺🇲|US|(?i)States|American
+  #US:
+    #<<: *All #引用锚点内容
+    #filter: 美|🇺🇲|US|(?i)States|American
     
   #香港节点
-  HK:
-    <<: *All
-    filter: 港|🇭🇰|HK|(?i)Hong
+  #HK:
+    #<<: *All
+    #filter: 港|🇭🇰|HK|(?i)Hong
 
   #日本节点
-  JP:
-    <<: *All
-    filter: 日本|🇯🇵|东京|JP|(?i)Japan
+  #JP:
+    #<<: *All
+    #filter: 日本|🇯🇵|东京|JP|(?i)Japan
  
   #台湾节点
-  TW:
-    <<: *All
-    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
+  #TW:
+    #<<: *All
+    #filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
    
 dns:
   enable: true
@@ -118,18 +118,32 @@ proxy-groups:
     proxies:
       - 手动切换
       - 自动选择
-      - 香港节点
-      - 日本节点
-      - 美国节点
-      - 台湾节点
-      - 狮城节点
-      - 韩国节点
+      #- 香港节点
+      #- 日本节点
+      #- 美国节点
+      #- 台湾节点
+      #- 狮城节点
+      #- 韩国节点
       - DIRECT
 
-  - name: NETFLIX
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
-    proxies:
+  #- name: NETFLIX
+    #type: select
+    #icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+    #proxies:
+      - 手动切换
+      - 自动选择
+      #- 香港节点
+      #- 日本节点
+      #- 美国节点
+      #- 台湾节点
+      #- 狮城节点
+      #- 韩国节点
+      - DIRECT
+
+  #- name: Disney+
+    #type: select
+    #icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/DisneyPlus.png
+    #proxies:
       - 手动切换
       - 自动选择
       - 香港节点
@@ -140,24 +154,10 @@ proxy-groups:
       - 韩国节点
       - DIRECT
 
-  - name: Disney+
-    type: select
-    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/DisneyPlus.png
-    proxies:
-      - 手动切换
-      - 自动选择
-      - 香港节点
-      - 日本节点
-      - 美国节点
-      - 台湾节点
-      - 狮城节点
-      - 韩国节点
-      - DIRECT
-
-  - name: 巴哈姆特
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png
-    proxies:
+  #- name: 巴哈姆特
+    #type: select
+    #icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bahamut.png
+    #proxies:
       - 台湾节点
       - 香港节点
       - 日本节点
@@ -237,10 +237,10 @@ proxy-groups:
       - 狮城节点
       - 韩国节点 
 
-  - name: 游戏平台
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
-    proxies:
+  #- name: 游戏平台
+    #type: select
+    #icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+    #proxies:
       - 手动切换
       - 自动选择
       - 香港节点
@@ -279,53 +279,53 @@ proxy-groups:
       - 韩国节点  
       - DIRECT
 
-  - name: 香港节点
-    type: url-test
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-    use:
+  #- name: 香港节点
+    #type: url-test
+    #icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    #use:
       - HK
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300  
+    #url: "http://www.gstatic.com/generate_204"
+    #interval: 300  
 
-  - name: 日本节点
-    type: url-test
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-    use:
+  #- name: 日本节点
+    #type: url-test
+    #icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+    #use:
       - JP
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
+    #url: "http://www.gstatic.com/generate_204"
+    #interval: 300
      
-  - name: 台湾节点
-    type: url-test
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
-    use:
+  #- name: 台湾节点
+    #type: url-test
+    #icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+    #use:
       - TW
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
+    #url: "http://www.gstatic.com/generate_204"
+    #interval: 300
 
-  - name: 美国节点
-    type: url-test
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
-    use:
+  #- name: 美国节点
+    #type: url-test
+    #icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+    #use:
       - US
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
+    #url: "http://www.gstatic.com/generate_204"
+    #interval: 300
       
-  - name: 狮城节点
-    type: url-test
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-    use:
+  #- name: 狮城节点
+    #type: url-test
+    #icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+    #use:
       - SG
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300  
+    #url: "http://www.gstatic.com/generate_204"
+    #interval: 300  
       
-  - name: 韩国节点
-    type: url-test
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
-    use:
+  #- name: 韩国节点
+    #type: url-test
+    #icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+    #use:
       - KR
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
+    #url: "http://www.gstatic.com/generate_204"
+    #interval: 300
 
 rule-providers:
 
@@ -350,21 +350,21 @@ rule-providers:
     path: ./ruleset/YouTube.yaml
     interval: 86400
 
-  Netflix:
+  #Netflix:
     type: http
     behavior: classical
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml"
     path: ./ruleset/Netflix.yaml
     interval: 86400
 
-  Disney:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml"
-    path: ./ruleset/Disney.yaml
-    interval: 86400
+  #Disney:
+    #type: http
+    #behavior: classical
+    #url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml"
+    #path: ./ruleset/Disney.yaml
+    #interval: 86400
 
-  Bahamut:
+  #Bahamut:
     type: http
     behavior: classical
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.yaml"
@@ -438,9 +438,9 @@ rules:
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Adblock-Domain,AdBlock
   - RULE-SET,YouTube,YouTube
-  - RULE-SET,Netflix,NETFLIX
-  - RULE-SET,Disney,Disney+
-  - RULE-SET,Bahamut,巴哈姆特
+  #- RULE-SET,Netflix,NETFLIX
+  #- RULE-SET,Disney,Disney+
+  #- RULE-SET,Bahamut,巴哈姆特
   - RULE-SET,Apple,苹果服务
   - RULE-SET,Microsoft,微软服务
   - RULE-SET,NetEaseMusic,网易音乐
