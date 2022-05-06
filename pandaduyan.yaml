@@ -25,15 +25,6 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204
       
-  Music:
-    type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/nameking77/Qx/main/music/wyy.txt&list=true&udp=true"
-    interval: 3600
-    path: ./proxy/NetEaseMusic.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://apm3.music.163.com
   #美国节点    
   US:
     <<: *All #引用锚点内容
@@ -95,13 +86,27 @@ dns:
     - https://dns.alidns.com/dns-query
 
 proxies:
-   - name: 🎵 解锁灰色
+   - name: 🎵 解锁灰色1
      type: http
      server: SALVAN.ICU
      port: 19980
      tls: false
      skip-cert-verify: true
      
+   - name: 🎵 解锁灰色2
+     type: http
+     server: music.lolico.me
+     port: 39000
+     tls: false
+     skip-cert-verify: true
+   
+   - name: 🎵 解锁灰色3
+     type: http
+     server: MUSIC.GRIOUGES.CN
+     port: 39000
+     tls: false
+     skip-cert-verify: true
+
 proxy-groups:
   - name: 手动切换
     type: select
@@ -229,9 +234,9 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
     proxies:
-      - DIRECT
-      - 🎵 解锁灰色
-      - Music
+      - 🎵 解锁灰色1
+      - 🎵 解锁灰色2
+      - 🎵 解锁灰色3
 
   - name: 哔哩哔哩
     type: select
