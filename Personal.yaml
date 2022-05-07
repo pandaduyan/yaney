@@ -1,0 +1,306 @@
+# 将proxy-providers里面链接中的“你的订阅链接”替换即可
+
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: true
+external-controller: 127.0.0.1:9090
+
+proxy-providers:
+  Github: &Github 
+    type: http
+    url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
+    interval: 3600
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204  
+  All: &All
+    type: http
+    url: "https://suo.yt/bJOnqwy"
+    interval: 3600
+    path: ./all.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+
+  #香港节点
+  HK:
+    <<: *All
+    filter: 港|🇭🇰|HK|(?i)Hong
+ 
+  #新加坡节点
+  SG:
+    <<: *All
+    filter: 新|🇸🇬|加坡|狮城|SG|(?i)Singpore
+   
+dns:
+  enable: true
+  ipv6: true
+  listen: 0.0.0.0:53
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - '*.lan'
+    - localhost.ptlogin2.qq.com
+    - '+.srv.nintendo.net'
+    - '+.stun.playstation.net'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    - '+.xboxlive.com'
+    - 'msftconnecttest.com'
+    - 'xbox.*.microsoft.com'
+    - '*.battlenet.com.cn'
+    - '*.battlenet.com'
+    - '*.blzstatic.cn'
+    - '*.battle.net'
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+
+proxies:
+   - name: 解锁灰色1
+     type: http
+     server: SALVAN.ICU
+     port: 19980
+     tls: false
+     skip-cert-verify: true
+     
+   - name: 解锁灰色2
+     type: http
+     server: music.lolico.me
+     port: 39000
+     tls: false
+     skip-cert-verify: true
+   
+   - name: 解锁灰色3
+     type: http
+     server: MUSIC.GRIOUGES.CN
+     port: 39000
+     tls: false
+     skip-cert-verify: true           
+proxy-groups:
+  - name: 手动切换
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+    use:
+      - Github
+      - All
+    proxies:
+      - 自动选择
+
+  - name: 自动选择
+    type: url-test
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
+    use: 
+       - Github
+       - All
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+    
+  - name: 国外网站
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+    proxies: 
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 新加坡节点
+
+  - name: 国内网站
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
+    proxies: 
+      - DIRECT
+      - 手动切换
+      - 自动选择
+      - 香港节点
+      - 新加坡节点
+      
+  - name: YouTube
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+    proxies:
+      - 手动切换
+      - 自动选择      
+      - 香港节点
+      - 新加坡节点
+
+  - name: 苹果服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+    proxies:
+      - DIRECT
+      - 手动切换
+      - 自动选择      
+      - 香港节点
+      - 新加坡节点
+
+  - name: 微软服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+    proxies:
+      - DIRECT
+      - 手动切换
+      - 自动选择      
+      - 香港节点
+      - 新加坡节点
+
+  - name: 网易音乐
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
+    proxies:
+      - DIRECT
+      - 解锁灰色1
+      - 解锁灰色2
+      - 解锁灰色3
+            
+  - name: 哔哩哔哩
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
+    proxies:
+      - DIRECT
+      - 手动切换
+      - 自动选择      
+      - 香港节点
+      - 新加坡节点
+
+  - name: 游戏平台
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+    proxies:
+      - DIRECT
+      - 手动切换
+      - 自动选择      
+      - 香港节点
+      - 新加坡节点
+
+  - name: AdBlock
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+    proxies:
+      - REJECT
+      
+  - name: 漏网之鱼
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+    proxies:
+      - DIRECT
+      - 手动切换
+      - 自动选择      
+      - 香港节点
+      - 新加坡节点
+      
+  - name: 香港节点
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    use:
+      - HK
+      
+  - name: 新加坡节点
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+    use:
+      - SG
+
+
+rule-providers:
+
+  Direct:
+    type: http
+    behavior: classical
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  Adblock-Domain:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml"
+    path: ./ruleset/AdDomain.yaml
+    interval: 86400
+        
+  YouTube:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
+    path: ./ruleset/YouTube.yaml
+    interval: 86400
+
+    
+  Apple:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml"
+    path: ./ruleset/Apple.yaml
+    interval: 86400
+
+  Microsoft:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml"
+    path: ./ruleset/Microsoft.yaml
+    interval: 86400
+
+  NetEaseMusic:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEaseMusic/NetEaseMusic.yaml"
+    path: ./ruleset/NetEaseMusic.yaml
+    interval: 86400
+
+  BiliBili:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml"
+    path: ./ruleset/BiliBili.yaml
+    interval: 86400
+
+  Game:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.yaml"
+    path: ./ruleset/Game.yaml
+    interval: 86400
+
+  China:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.yaml"
+    path: ./ruleset/China.yaml
+    interval: 86400
+
+  Global:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/Global-Domain.yaml
+    interval: 86400
+
+  Lan:
+    type: http
+    behavior: classical
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml"
+    path: ./ruleset/lan.yaml
+    interval: 86400
+    
+rules:
+  - RULE-SET,Direct,DIRECT
+  - RULE-SET,Adblock-Domain,AdBlock
+  - RULE-SET,YouTube,YouTube
+  - RULE-SET,Apple,苹果服务
+  - RULE-SET,Microsoft,微软服务
+  - RULE-SET,NetEaseMusic,网易音乐
+  - RULE-SET,BiliBili,哔哩哔哩
+  - RULE-SET,Game,游戏平台
+  - RULE-SET,Global,国外网站
+  - RULE-SET,China,国内网站
+  - RULE-SET,Lan,DIRECT
+  - GEOIP,CN,国内网站
+  - MATCH,漏网之鱼
