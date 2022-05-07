@@ -64,21 +64,7 @@ proxies:
      port: 19980
      tls: false
      skip-cert-verify: true
-     
-    - name: 解锁灰色2
-     type: http
-     server: music.lolico.me
-     port: 39000
-     tls: false
-     skip-cert-verify: true
-   
-    - name: 解锁灰色3
-     type: http
-     server: MUSIC.GRIOUGES.CN
-     port: 39000
-     tls: false
-     skip-cert-verify: true
-     
+          
 proxy-groups:
   - name: 🚀 手动切换
     type: select
@@ -156,8 +142,6 @@ proxy-groups:
     proxies:
       - DIRECT
       - 解锁灰色1
-      - 解锁灰色2
-      - 解锁灰色3
 
   - name: 🎬 哔哩哔哩
     type: select
