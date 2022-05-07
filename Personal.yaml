@@ -24,7 +24,7 @@ proxy-providers:
 &list=true&udp=true"
     # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；也可以将Clash订阅链接替换掉整个引号""内的链接
     interval: 3600
-    path: ./all.yaml
+    path: ./All.yaml
     health-check:
       enable: true
       interval: 600
@@ -85,15 +85,15 @@ proxy-groups:
     type: select
     use:
       - Github
-      - all
+      - All
     proxies:
       - ✈️ 自动选择
 
   - name: ✈️ 自动选择
     type: url-test
     use: 
-       - Github
-      - all
+      - Github
+      - All
     url: "http://www.gstatic.com/generate_204"
     interval: 300
 
