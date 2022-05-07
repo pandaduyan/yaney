@@ -58,7 +58,7 @@ dns:
     - https://dns.google/dns-query
     
 proxies:
-  - name: 解锁灰色1
+  - name: 解锁灰色
     type: http
     server: SALVAN.ICU
     port: 19980
@@ -141,7 +141,7 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - 解锁灰色1
+      - 解锁灰色
 
   - name: 🎬 哔哩哔哩
     type: select
