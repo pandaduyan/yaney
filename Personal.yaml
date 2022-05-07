@@ -18,12 +18,12 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  All:
+  V2ray:
     type: http
     url: "https://suo.yt/bJOnqwy"
     # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；也可以将Clash订阅链接替换掉整个引号""内的链接
     interval: 3600
-    path: ./all.yaml
+    path: ./V2ray.yaml
     health-check:
       enable: true
       interval: 600
@@ -70,7 +70,7 @@ proxy-groups:
     type: select
     use:
       - Github
-      - All
+      - V2ray
     proxies:
       - ✈️ 自动选择
 
@@ -78,7 +78,7 @@ proxy-groups:
     type: url-test
     use: 
       - Github
-      - All
+      - V2ray
     url: "http://www.gstatic.com/generate_204"
     interval: 300
 
