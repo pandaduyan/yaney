@@ -60,10 +60,10 @@ dns:
 proxies:
   - name: 解锁灰色
     type: http
-    server: MUSIC.GRIOUGES.CN
-    port: 39000
+    server: SALVAN.ICU
+    port: 19980
     tls: false
-    skip-cert-verify: false
+    skip-cert-verify: true
           
 proxy-groups:
   - name: 🚀 手动切换
