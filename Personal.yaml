@@ -20,7 +20,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
   V2ray:
     type: http
-    url: "https://sub.id9.cc/sub?target=clash&new_name=true&url=https%3A%2F%2Ff.kxyz.eu.org%2Ff.php%3Fr%3DaHR0cHM6Ly9yc3MuNnllYXJzb2sueHl6L2xpbmsvTGt2S0c4TkthOXFxSWR3dj9tdT0y&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini"
+    url:"https://api.v1.mk/sub?target=clash&url=https://paste.gg/p/hoyien/6906e72646c94f22b89dac41250eb4b0/files/b260d3f70efc4c1287e8c4999ac6a07c/raw&list=true&udp=true"
     # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；也可以将Clash订阅链接替换掉整个引号""内的链接
     interval: 3600
     path: ./V2ray.yaml
