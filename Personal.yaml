@@ -60,10 +60,10 @@ dns:
 proxies:
   - name: 解锁灰色
     type: http
-    server: music.lolico.me
+    server: MUSIC.GRIOUGES.CN
     port: 39000
     tls: false
-    skip-cert-verify: true
+    skip-cert-verify: false
           
 proxy-groups:
   - name: 🚀 手动切换
