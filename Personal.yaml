@@ -64,6 +64,25 @@ proxies:
     port: 19980
     tls: false
     skip-cert-verify: true
+    
+- name: 'vmess'
+    type: vmess
+    server: 120.196.205.109
+    port: 8080
+    uuid: cb13bbf4-1019-42c7-bc16-7d79dd8a7396
+    alterId: 0
+    cipher: auto
+    # udp: true
+    tls: false
+    skip-cert-verify: false
+    # servername: example.com # 优先级高于 wss host
+    network: ws
+    ws-opts:
+       path: /
+       headers:
+         Host: a.189.cn
+    #   max-early-data: 2048
+    #   early-data-header-name: Sec-WebSocket-Protocol
           
 proxy-groups:
   - name: 🚀 手动切换
