@@ -64,6 +64,14 @@ proxies:
     port: 19980
     tls: false
     skip-cert-verify: true
+    
+ - name: vmess
+    type: vmess
+    server: 120.196.205.10
+    port: 8080
+    uuid: cb13bbf4-1019-42c7-bc16-7d79dd8a7396
+    alterId: 0
+    cipher: auto
           
 proxy-groups:
   - name: 🚀 手动切换
@@ -73,6 +81,7 @@ proxy-groups:
       - V2ray
     proxies:
       - ✈️ 自动选择
+      - vmess
 
   - name: ✈️ 自动选择
     type: url-test
