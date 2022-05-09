@@ -99,6 +99,7 @@ proxy-groups:
     use: 
       - Github
       - V2ray
+      - vmess
     url: "http://www.gstatic.com/generate_204"
     interval: 300
 
