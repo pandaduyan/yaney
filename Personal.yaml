@@ -65,7 +65,7 @@ proxies:
     tls: false
     skip-cert-verify: true
     
- - name: vmess
+ - name: 'vmess'
     type: vmess
     server: 120.196.205.10
     port: 8080
