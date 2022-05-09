@@ -13,9 +13,9 @@ proxies:
   - {name: 🇯🇵 日本-IPLC专线-搞鸡玩家 04, server: fliplc.getxlx.com, port: 59959, type: vmess, uuid: 3a9e460c-2f70-3688-9602-ad67a1f5efbe, alterId: 0, cipher: none, tls: false, skip-cert-verify: false}
   - {name: 🇸🇬 新加坡-IPLC专线-搞鸡玩家 01, server: fliplc.getxlx.com, port: 59931, type: vmess, uuid: 3a9e460c-2f70-3688-9602-ad67a1f5efbe, alterId: 0, cipher: none, tls: false, skip-cert-verify: false}
   - {name: 🇸🇬 新加坡-IPLC专线-搞鸡玩家 02, server: fliplc.getxlx.com, port: 59932, type: vmess, uuid: 3a9e460c-2f70-3688-9602-ad67a1f5efbe, alterId: 0, cipher: none, tls: false, skip-cert-verify: false}
-  - {name: 🇺🇸 美国-中美专线-搞鸡玩家 01, server: c69s4.jamjams.net, port: 8288, type: vmess, uuid: 614ee3a3-90ad-4239-8eb0-1661daba6c2a, alterId: 0, cipher: aes-256-cfb, tls: false, skip-cert-verify: false}
-  - {name: 🇺🇸 美国-中美专线-搞鸡玩家 02, server: c69s5.jamjams.net, port: 8288, type: vmess, uuid: 614ee3a3-90ad-4239-8eb0-1661daba6c2a, alterId: 0, cipher: aes-256-cfb, tls: false, skip-cert-verify: false}
-  - {name: 🇺🇸 美国-中美专线-搞鸡玩家 03, server: c69s3.jamjams.net, port: 8288, type: vmess, uuid: 614ee3a3-90ad-4239-8eb0-1661daba6c2a, alterId: 0, cipher: aes-256-cfb, tls: false, skip-cert-verify: false}
+  - {name: 🇺🇸 美国-中美专线-搞鸡玩家 01, server: c69s4.jamjams.net, port: 8288, type: vmess, uuid: 614ee3a3-90ad-4239-8eb0-1661daba6c2a, alterId: 0, tls: false, skip-cert-verify: false}
+  - {name: 🇺🇸 美国-中美专线-搞鸡玩家 02, server: c69s5.jamjams.net, port: 8288, type: vmess, uuid: 614ee3a3-90ad-4239-8eb0-1661daba6c2a, alterId: 0, tls: false, skip-cert-verify: false}
+  - {name: 🇺🇸 美国-中美专线-搞鸡玩家 03, server: c69s3.jamjams.net, port: 8288, type: vmess, uuid: 614ee3a3-90ad-4239-8eb0-1661daba6c2a, alterId: 0, tls: false, skip-cert-verify: false}
   - {name: 🇸🇬 新加坡-IPLC专线-搞鸡玩家 03, server: fliplc.getxlx.com, port: 59933, type: vmess, uuid: 3a9e460c-2f70-3688-9602-ad67a1f5efbe, alterId: 0, cipher: none, tls: false, skip-cert-verify: false}
   - {name: 🇸🇬 新加坡-IPLC专线-搞鸡玩家 04, server: fliplc.getxlx.com, port: 59934, type: vmess, uuid: 3a9e460c-2f70-3688-9602-ad67a1f5efbe, alterId: 0, cipher: none, tls: false, skip-cert-verify: false}
   - {name: 🇺🇸 美国-中美专线-搞鸡玩家 04, server: c69s2.jamjams.net, port: 8288, type: ss, cipher: none, password: RemqF6QLp9qYjnRp}
