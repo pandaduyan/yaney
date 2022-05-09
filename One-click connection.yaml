@@ -15,7 +15,6 @@ proxies:
   - {name: 一键连 8, server: 120.232.251.206, port: 29979, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
   - {name: 一键连 9, server: 120.232.251.206, port: 29980, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
   - {name: 一键连 10, server: jc.ap.fastqvpn.com, port: 29980, type: http, username: 442993652168396800, password: 2ef91648-089f-4c81-b34d-06f072ec51dd, tls: true, skip-cert-verify: true}
-  - {name: 中转hk, server: 120.196.205.109, port: 8080, type: vmess, uuid: cb13bbf4-1019-42c7-bc16-7d79dd8a7396, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: a.189.cn}}}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -32,7 +31,6 @@ proxy-groups:
       - 一键连 8
       - 一键连 9
       - 一键连 10
-      - 中转hk
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -48,7 +46,6 @@ proxy-groups:
       - 一键连 8
       - 一键连 9
       - 一键连 10
-      - 中转hk
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -76,7 +73,6 @@ proxy-groups:
       - 一键连 8
       - 一键连 9
       - 一键连 10
-      - 中转hk
 rules:
  - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
  - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
