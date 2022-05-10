@@ -67,7 +67,7 @@ dns:
     - https://dns.google/dns-query
     
 proxies:
-  - name: 'VIP'
+  - name: '解锁灰色'
     type: http
     server: SALVAN.ICU
     port: 19980
@@ -159,7 +159,7 @@ proxy-groups:
       - Music
     proxies:
       - DIRECT
-      - VIP
+      - 解锁灰色
 
     proxies:
       - DIRECT
