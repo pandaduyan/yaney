@@ -28,6 +28,21 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
+  Music:
+    type: http
+    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/nameking77/Qx/main/music/wyy.txt&list=true&udp=true"
+    interval: 86400
+    path: ./proxy/NetEaseMusic.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://apm3.music.163.com 
+type: trojan
+    server: server
+    port: 443
+    password: yourpsk
+trojan=trojan.tgaro.top:443, password=edcfreetrojan, over-tls=true, tls-verification=false, fast-open=true, udp-relay=false, tag=🇺🇸US|公益用付费服务器|请请勿长时间占用
+
 dns:
   enable: true
   ipv6: true
@@ -58,12 +73,12 @@ dns:
     - https://dns.google/dns-query
     
 proxies:
-  - name: 解锁灰色
-    type: http
-    server: SALVAN.ICU
-    port: 19980
-    tls: false
-    skip-cert-verify: true
+  - name: 'erdongchanyo'
+    type: trojan
+    server: trojan.tgaro.top
+    port: 443
+    password: edcfreetrojan
+
           
 proxy-groups:
   - name: 🚀 手动切换
@@ -73,13 +88,14 @@ proxy-groups:
       - V2ray
     proxies:
       - ✈️ 自动选择
-      - vmess
+      - erdongchanyo
 
   - name: ✈️ 自动选择
     type: url-test
     use: 
       - Github
       - V2ray
+      
     url: "http://www.gstatic.com/generate_204"
     interval: 300
 
@@ -140,10 +156,13 @@ proxy-groups:
 
   - name: 🎶 网易音乐
     type: select
+    use:
+      - Music
     proxies:
       - DIRECT
-      - 解锁灰色
 
+    proxies:
+      - DIRECT
   - name: 🎬 哔哩哔哩
     type: select
     proxies:
@@ -168,9 +187,10 @@ proxy-groups:
   - name: 🐟 漏网之鱼
     type: select
     proxies:
+      - DIRECT
       - 🚀 手动切换
       - ✈️ 自动选择
-      - DIRECT
+
 
  
 
