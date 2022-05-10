@@ -72,6 +72,13 @@ proxies:
     server: trojan.tgaro.top
     port: 443
     password: edcfreetrojan
+    
+ - name: 🎵 VIP
+     type: http
+     server: SALVAN.ICU
+     port: 19980
+     tls: false
+     skip-cert-verify: true
 
           
 proxy-groups:
@@ -154,6 +161,7 @@ proxy-groups:
       - Music
     proxies:
       - DIRECT
+      - 🎵 VIP
 
     proxies:
       - DIRECT
