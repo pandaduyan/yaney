@@ -37,8 +37,6 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://apm3.music.163.com 
-
-
 dns:
   enable: true
   ipv6: true
