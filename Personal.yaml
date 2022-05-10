@@ -73,12 +73,12 @@ proxies:
     port: 443
     password: edcfreetrojan
     
-   - name: 'VIP'
-     type: http
-     server: SALVAN.ICU
-     port: 19980
-     tls: false
-     skip-cert-verify: true
+  - name: 'VIP'
+    type: http
+    server: SALVAN.ICU
+    port: 19980
+    tls: false
+    skip-cert-verify: true
 
           
 proxy-groups:
