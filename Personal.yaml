@@ -20,7 +20,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
   V2ray:
     type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Fraw.githubusercontent.com%2Fjunwei380%2Fjcjd028%2Fmain%2F0928&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FMeilieage%2Fwebcdn%2Fmain%2Frule%2FArea_Media_NoAuto.ini&emoji=true&list=false&udp=false&tfo=false&expand=true&scv=false&fdn=false&sort=false&new_name=true"
+    url: "https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Fpanel.kelecloud.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Df1c584f9d7a91dc1f39cdb68d3de20df&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FMeilieage%2Fwebcdn%2Fmain%2Frule%2FArea_Media_NoAuto.ini&emoji=true&list=false&udp=false&tfo=false&expand=true&scv=false&fdn=false&sort=false&new_name=true"
     # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；也可以将Clash订阅链接替换掉整个引号""内的链接
     interval: 3600
     path: ./V2ray.yaml
