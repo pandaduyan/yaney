@@ -102,6 +102,7 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     use:
+      - Github
       - All
     proxies:
       - 自动选择
@@ -110,6 +111,7 @@ proxy-groups:
     type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
     use: 
+       - Github
        - All
     url: "http://www.gstatic.com/generate_204"
     interval: 300
