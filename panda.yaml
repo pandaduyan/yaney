@@ -125,18 +125,21 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 韩国节点
+      - 狮城节点
+      - 韩国节点
 
   - name: 国内网站
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
     proxies: &C
-      - DIRECT
       - 手动切换
       - 自动选择
       - 香港节点
       - 日本节点
       - 美国节点
       - 台湾节点
+      - 韩国节点
+      - 狮城节点
       - 韩国节点
       
   - name: YouTube
