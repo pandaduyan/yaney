@@ -236,7 +236,7 @@ proxy-groups:
     proxies:
       - DIRECT
       
-  - name: 狮城节点
+  - name: 韩国节点
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
     use:
