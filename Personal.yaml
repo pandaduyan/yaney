@@ -18,15 +18,25 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  V2ray:
+  2046:
     type: http
-    url: "https://raw.githubusercontent.com/shiran588/jiedian/main/6.11.yaml"
+    url: "https://api.v1.mk/sub?target=clash&url=https://www.2046.gq/api/v1/client/subscribe?token=6cfa4f72cb8a6c6edce8257b2247baee&list=true&udp=true"
     interval: 3600
-    path: ./V2ray.yaml
+    path: ./2046.yaml
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
+      
+  welink:
+    type: http
+    url: "https://api.v1.mk/sub?target=clash&url=https://welink345.com/api/v1/client/subscribe?token=b1a41fe754503f5841ed177c925993f5&list=true&udp=true"
+    interval: 3600
+    path: ./welink.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204    
   Music:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/nameking77/Qx/main/music/wyy.txt&list=true&udp=true"
@@ -77,7 +87,8 @@ proxy-groups:
     type: select
     use:
       - Github
-      - V2ray
+      - 2046
+      - welink
     proxies:
       - ✈️ 自动选择
       - erdongchanyo
@@ -86,7 +97,8 @@ proxy-groups:
     type: url-test
     use: 
       - Github
-      - V2ray
+      - 2046
+      - welink
       
     url: "http://www.gstatic.com/generate_204"
     interval: 300
