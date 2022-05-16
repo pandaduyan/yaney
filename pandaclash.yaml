@@ -11,7 +11,7 @@ proxy-providers:
  #全部节点
  TG: 
     type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https%3A%2F%2Fraw.githubusercontent.com%2Ftest100000hh%2Ftest%2F0d109b6777e34b48790fd2838d554fc9638519b7%2Ftest2&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FMeilieage%2Fwebcdn%2Fmain%2Frule%2FArea_Media_NoAuto.ini&emoji=true&list=false&udp=false&tfo=false&expand=true&scv=false&fdn=false&sort=false&new_name=true"
+    url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/YJL.yaml"
     interval: 3600
     path: ./TG.yaml
     health-check:
