@@ -139,6 +139,7 @@ proxy-groups:
   - name: ✈️ 自动选择
     type: url-test
     use: 
+      - TG
       - All
     url: "http://www.gstatic.com/generate_204"
     interval: 300
