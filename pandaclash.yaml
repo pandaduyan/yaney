@@ -9,9 +9,9 @@ external-controller: 127.0.0.1:9090
 
 proxy-providers:
  #全部节点
-  Github: 
+  418: 
     type: http
-    url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/One-click%20connection.yaml"
+    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/chfchf0306/jeidian4.18/main/4.18&list=true&udp=true"
     interval: 3600
     path: ./Github.yaml
     health-check:
@@ -129,7 +129,7 @@ proxy-groups:
   - name: 🚀 手动切换
     type: select
     use:
-      - Github
+      - 418
       - All
     proxies:
       - ✈️ 自动选择
@@ -138,7 +138,7 @@ proxy-groups:
   - name: ✈️ 自动选择
     type: url-test
     use: 
-      - Github
+      - 418
       - All
     url: "http://www.gstatic.com/generate_204"
     interval: 300
