@@ -11,7 +11,7 @@ proxy-providers:
  #全部节点
   All: 
     type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/yu-steven/openit/main/long|https://raw.githubusercontent.com/chfchf0306/jeidian4.18/main/4.18&list=true&udp=true"
+    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/yu-steven/openit/main/long&list=true&udp=true"
     interval: 3600
     path: ./all.yaml
     health-check:
