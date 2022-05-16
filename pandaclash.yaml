@@ -9,15 +9,6 @@ external-controller: 127.0.0.1:9090
 
 proxy-providers:
  #全部节点
-  TG: 
-    type: http
-    url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/TG.yaml"
-    interval: 3600
-    path: ./TG.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
   All: 
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/yu-steven/openit/main/long&list=true&udp=true"
@@ -124,25 +115,123 @@ proxies:
     type: trojan
     server: trojan.tgaro.top
     port: 443
-    password: edcfreetrojan            
+    password: edcfreetrojan 
+  - name: "TG1"
+    password: 26bae9b023
+    server: h890361.droplet.today
+    type: http
+    port: 11545
+    username: dcf12c7e7d
+    tls: true
+    skip-cert-verify: true
+  - name: "TG2"
+    password: 26bae9b023
+    server: h3816tw.droplet.today
+    type: http
+    port: 20443
+    username: dcf12c7e7d
+    tls: true
+    skip-cert-verify: true
+  - name: "TG3"
+    password: 26bae9b023
+    server: h961684.droplet.today
+    type: http
+    port: 11745
+    username: dcf12c7e7d
+    tls: true
+    skip-cert-verify: true
+  - name: "TG4"
+    password: 26bae9b023
+    server: h961684.droplet.today
+    type: http
+    port: 11245
+    username: dcf12c7e7d
+    tls: true
+    skip-cert-verify: true
+  - name: "TG5"
+    password: 26bae9b023
+    server: h961359.droplet.today
+    type: http
+    port: 11745
+    username: dcf12c7e7d
+    tls: true
+    skip-cert-verify: true
+  - name: "TG6"
+    password: 26bae9b023
+    server: h961359.droplet.today
+    type: http
+    port: 11545
+    username: dcf12c7e7d
+    tls: true
+    skip-cert-verify: true
+  - name: "TG7"
+    password: 26bae9b023
+    server: h961684.droplet.today
+    type: http
+    port: 11445
+    username: dcf12c7e7d
+    tls: true
+    skip-cert-verify: true
+  - name: "TG8"
+    password: 26bae9b023
+    server: h961359.droplet.today
+    type: http
+    port: 11445
+    username: dcf12c7e7d
+    tls: true
+    skip-cert-verify: true
+  - name: "TG9"
+    password: 26bae9b023
+    server: h961359.droplet.today
+    type: http
+    port: 11245
+    username: dcf12c7e7d
+    tls: true
+    skip-cert-verify: true
+  - name: "TG10"
+    password: 26bae9b023
+    server: h890361.droplet.today
+    type: http
+    port: 11445
+    username: dcf12c7e7d
+    tls: true
+    skip-cert-verify: true  
 proxy-groups:
   - name: 🚀 手动切换
     type: select
     use:
-      - TG
       - All
     proxies:
       - ✈️ 自动选择
       - erdongchanyo
+      - TG1
+      - TG2
+      - TG3
+      - TG4
+      - TG5
+      - TG6
+      - TG7
+      - TG8
+      - TG9
+      - TG10
 
   - name: ✈️ 自动选择
     type: url-test
     use: 
-      - TG
       - All
     url: "http://www.gstatic.com/generate_204"
     interval: 300
-
+    proxies:
+      - TG1
+      - TG2
+      - TG3
+      - TG4
+      - TG5
+      - TG6
+      - TG7
+      - TG8
+      - TG9
+      - TG10
   - name: 🎬 YouTube
     type: select
     proxies:
