@@ -15,7 +15,7 @@ proxy-providers:
       enable: true
       interval: 36000
       url: http://www.gstatic.com/generate_204
-   
+
   Music:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/nameking77/Qx/main/music/wyy.txt&list=true&udp=true"
@@ -25,7 +25,7 @@ proxy-providers:
       enable: true
       interval: 36000
       url: http://apm3.music.163.com
-      
+
   #美国节点    
   US:
     <<: *All #引用锚点内容
@@ -179,9 +179,9 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
     use:
       - Music
-proxies:
+    proxies:
       - DIRECT
-
+      
   - name: 哔哩哔哩
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
