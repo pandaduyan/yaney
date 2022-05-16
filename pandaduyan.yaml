@@ -15,14 +15,7 @@ proxy-providers:
       enable: true
       interval: 36000
       url: http://www.gstatic.com/generate_204
-  All: &418 
-    type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/chfchf0306/jeidian4.18/main/4.18&list=true&udp=true"
-    interval: 3600
-    health-check:
-      enable: true
-      interval: 36000
-      url: http://www.gstatic.com/generate_204    
+   
   Music:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/nameking77/Qx/main/music/wyy.txt&list=true&udp=true"
@@ -99,7 +92,6 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     use:
-      - 418
       - All
     proxies:
       - 自动选择
@@ -108,7 +100,6 @@ proxy-groups:
     type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
     use: 
-      - 418
       - All
     url: "http://www.gstatic.com/generate_204"
     interval: 300
