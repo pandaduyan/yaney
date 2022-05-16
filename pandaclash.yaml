@@ -9,7 +9,7 @@ external-controller: 127.0.0.1:9090
 
 proxy-providers:
  #全部节点
- TG: 
+  TG:
     type: http
     url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/YJL.yaml"
     interval: 3600
@@ -18,7 +18,7 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  All: 
+  All:
     type: http
     url: "https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml"
     interval: 3600
@@ -35,7 +35,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: http://apm3.music.163.com 
+      url: http://apm3.music.163.com
   #香港节点     
   HK:
     type: file
@@ -124,8 +124,7 @@ proxies:
     type: trojan
     server: trojan.tgaro.top
     port: 443
-    password: edcfreetrojan 
-
+    password: edcfreetrojan
 proxy-groups:
   - name: 🚀 手动切换
     type: select
@@ -135,7 +134,6 @@ proxy-groups:
     proxies:
       - ✈️ 自动选择
       - erdongchanyo
-
   - name: ✈️ 自动选择
     type: url-test
     use: 
