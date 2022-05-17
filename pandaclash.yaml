@@ -8,34 +8,37 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 
 proxy-providers:
- #全部节点
-  TG:
+  TG: 
     type: http
     url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/YJL.yaml"
     interval: 3600
-    path: ./TG.yaml
+    path: ./tg.yaml
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  All:
+ 
+  All: &All
     type: http
-    url: "https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml"
+    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/yu-steven/openit/main/long&list=true"
+    # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；也可以将Clash订阅链接替换掉整个引号""内的链接
     interval: 3600
     path: ./all.yaml
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  Music:
+      
+  Music: 
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/nameking77/Qx/main/music/wyy.txt&list=true&udp=true"
-    interval: 86400
+    # 可以使用任意类型的链接替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；也可以将Clash订阅链接替换掉整个引号""内的链接
+    interval: 3600
     path: ./proxy/NetEaseMusic.yaml
     health-check:
       enable: true
       interval: 600
-      url: http://apm3.music.163.com
+      url: http://www.gstatic.com/generate_204
   #香港节点     
   HK:
     type: file
@@ -58,7 +61,7 @@ proxy-providers:
   US:
     type: file
     path: ./all.yaml
-    filter: 美|US|(?i)States|American|
+    filter: 美|US|(?i)States|American
     health-check:
       enable: true
       interval: 120
@@ -85,11 +88,13 @@ proxy-providers:
   SG:
     type: file
     path: ./all.yaml
-    filter: 新|狮城|SG|(?i)Singapore
+    filter: 新|狮城|SG
     health-check:
       enable: true
       interval: 120
-      url: http://www.gstatic.com/generate_204     
+      url: http://www.gstatic.com/generate_204
+      
+      
 dns:
   enable: true
   ipv6: true
@@ -125,6 +130,7 @@ proxies:
     server: trojan.tgaro.top
     port: 443
     password: edcfreetrojan
+            
 proxy-groups:
   - name: 🚀 手动切换
     type: select
@@ -134,6 +140,7 @@ proxy-groups:
     proxies:
       - ✈️ 自动选择
       - erdongchanyo
+
   - name: ✈️ 自动选择
     type: url-test
     use: 
@@ -141,6 +148,7 @@ proxy-groups:
       - All
     url: "http://www.gstatic.com/generate_204"
     interval: 300
+
   - name: 🎬 YouTube
     type: select
     proxies:
@@ -183,14 +191,14 @@ proxy-groups:
   - name: 🎬 巴哈姆特
     type: select
     proxies:
-      - 🚀 手动切换
-      - ✈️ 自动选择
       - 🇨🇳 台湾节点
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇰🇷 韩国节点
       - 🇸🇬 狮城节点
+      - ✈️ 自动选择
+      - 🚀 手动切换
       - DIRECT
 
   - name: 🆎 AdBlock
@@ -262,6 +270,7 @@ proxy-groups:
     type: select
     proxies:
       - 🚀 手动切换
+      - DIRECT
       - ✈️ 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
@@ -269,7 +278,6 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
       - 🇸🇬 狮城节点
-      - DIRECT
 
   - name: 🌏 国内网站
     type: select
@@ -288,6 +296,7 @@ proxy-groups:
     type: select
     proxies:
       - 🚀 手动切换
+      - DIRECT
       - ✈️ 自动选择
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
@@ -295,43 +304,54 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
       - 🇸🇬 狮城节点
-      - DIRECT
   - name: 🇭🇰 香港节点
     type: select
     use:
       - HK
     proxies:
       - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
   - name: 🇯🇵 日本节点
     type: select
     use:
       - JP
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
     proxies:
-      - DIRECT  
+      - DIRECT
   - name: 🇨🇳 台湾节点
     type: select
     use:
       - TW
     proxies:
-      - DIRECT  
+      - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
   - name: 🇺🇲 美国节点
     type: select
     use:
       - US
     proxies:
-      - DIRECT  
+      - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
   - name: 🇸🇬 狮城节点
     type: select
     use:
       - SG
     proxies:
-      - DIRECT 
+      - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
   - name: 🇰🇷 韩国节点
     type: select
     use:
       - KR
     proxies:
-      - DIRECT  
+      - DIRECT
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300  
 rule-providers:
 
   Direct:
