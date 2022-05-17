@@ -8,6 +8,15 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 
 proxy-providers:
+  dingzi:
+    type: http
+    url: "https://api.v1.mk/sub?target=clash&url=https://sub.dingzige.ga/api/v1/client/subscribe?token=5b8a25e43c414fe629d7572b0fa16dd1&list=true&udp=true"
+    interval: 3600
+    path: ./dingzi.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
   2046:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://www.2046.gq/api/v1/client/subscribe?token=6cfa4f72cb8a6c6edce8257b2247baee&list=true&udp=true"
@@ -88,6 +97,7 @@ proxy-groups:
       - 2046
       - welink
       - ssrsub
+      - dingzi
     proxies:
       - ✈️ 自动选择
       - erdongchanyo
@@ -98,6 +108,7 @@ proxy-groups:
       - 2046
       - welink
       - ssrsub
+      - dingzi
       
     url: "http://www.gstatic.com/generate_204"
     interval: 300
