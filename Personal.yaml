@@ -8,6 +8,15 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 
 proxy-providers:
+  AWZR:
+    type: http
+    url: "https://api.v1.mk/sub?target=clash&url=https://api.awzr.shop/api/v1/client/subscribe?token=2dd392da5ee1fc77cff1d01a7779c175&list=true&udp=true"
+    interval: 3600
+    path: ./dingzi.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
   dingzi:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://sub.dingzige.ga/api/v1/client/subscribe?token=5b8a25e43c414fe629d7572b0fa16dd1&list=true&udp=true"
@@ -98,6 +107,7 @@ proxy-groups:
       - welink
       - ssrsub
       - dingzi
+      - AWZR
     proxies:
       - ✈️ 自动选择
       - erdongchanyo
@@ -109,6 +119,7 @@ proxy-groups:
       - welink
       - ssrsub
       - dingzi
+      - AWZR
       
     url: "http://www.gstatic.com/generate_204"
     interval: 300
