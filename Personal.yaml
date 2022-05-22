@@ -266,9 +266,10 @@ proxy-groups:
 
   - name: 🎶 网易音乐
     type: select
+    use:
+      - Music
     proxies:
       - DIRECT
-      - Music
 
   - name: 🎬 哔哩哔哩
     type: select
