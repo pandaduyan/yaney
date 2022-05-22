@@ -13,7 +13,7 @@ proxy-providers:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://api.awzr.shop/api/v1/client/subscribe?token=2dd392da5ee1fc77cff1d01a7779c175&list=true&udp=true"
     interval: 3600
-    path: ./Personals.yaml
+    path: ./AWZR.yaml
     health-check:
       enable: true
       interval: 600
@@ -22,7 +22,7 @@ proxy-providers:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://sub.dingzige.ga/api/v1/client/subscribe?token=5b8a25e43c414fe629d7572b0fa16dd1&list=true&udp=true"
     interval: 3600
-    path: ./Personals.yaml
+    path: ./dingzi.yaml
     health-check:
       enable: true
       interval: 600
@@ -31,7 +31,7 @@ proxy-providers:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://www.2046.gq/api/v1/client/subscribe?token=6cfa4f72cb8a6c6edce8257b2247baee&list=true&udp=true"
     interval: 3600
-    path: ./Personals.yaml
+    path: ./2046.yaml
     health-check:
       enable: true
       interval: 600
@@ -41,7 +41,7 @@ proxy-providers:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://welink345.com/api/v1/client/subscribe?token=b1a41fe754503f5841ed177c925993f5&list=true&udp=true"
     interval: 3600
-    path: ./Personals.yaml
+    path: ./welink.yaml
     health-check:
       enable: true
       interval: 600
@@ -50,7 +50,7 @@ proxy-providers:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://sub.ssrsub.com/api/v1/client/subscribe?token=2e231e86617aa83e776f317b52a04e4a&list=true&udp=true"
     interval: 3600
-    path: ./Personals.yaml
+    path: ./ssrsub.yaml
     health-check:
       enable: true
       interval: 600
@@ -59,7 +59,7 @@ proxy-providers:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://sub.ssrsub.com/api/v1/client/subscribe?token=2e231e86617aa83e776f317b52a04e4a&list=true&udp=true"
     interval: 3600
-    path: ./Personals.yaml
+    path: ./qidian.yaml
     health-check:
       enable: true
       interval: 600
@@ -72,45 +72,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: http://apm3.music.163.com
-  
-  #香港节点     
-  HK:
-    type: file
-    path: ./Personals.yaml
-    filter: 港|HK|(?i)Hong
-    health-check:
-      enable: true
-      interval: 120
-      url: http://www.gstatic.com/generate_204
- #日本节点
-  JP:
-    type: file
-    path: ./Personals.yaml
-    filter: 日|东京|JP|(?i)Japan
-    health-check:
-      enable: true
-      interval: 120
-      url: http://www.gstatic.com/generate_204
- #美国节点
-  US:
-    type: file
-    path: ./Personals.yaml
-    filter: 美|US|(?i)States|American
-    health-check:
-      enable: true
-      interval: 120
-      url: http://www.gstatic.com/generate_204
- #台湾节点
-  TW:
-    type: file
-    path: ./Personals.yaml
-    filter: 台|湾|TW|(?i)Taiwan
-    health-check:
-      enable: true
-      interval: 120
-      url: http://www.gstatic.com/generate_204
-      
+      url: http://apm3.music.163.com    
 dns:
   enable: true
   ipv6: true
@@ -182,10 +144,6 @@ proxy-groups:
       - 美国备用
       - 🚀 手动切换
       - ✈️ 自动选择
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
       
   - name: 🔮 负载均衡
     type: load-balance
@@ -197,10 +155,6 @@ proxy-groups:
       - 美国备用
       - 🚀 手动切换
       - ✈️ 自动选择
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
       
   - name: 🎬 YouTube
     type: select
@@ -211,10 +165,6 @@ proxy-groups:
       - ✈️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
 
   - name: 🆎 AdBlock
     type: select
@@ -231,10 +181,6 @@ proxy-groups:
       - ✈️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
 
   - name: 🍎 苹果服务
     type: select
@@ -245,10 +191,7 @@ proxy-groups:
       - ✈️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
+
 
   - name: 🧩 微软服务
     type: select
@@ -259,10 +202,6 @@ proxy-groups:
       - ✈️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
 
   - name: 🎶 网易音乐
     type: select
@@ -280,10 +219,6 @@ proxy-groups:
       - ✈️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
 
   - name: 🌏 国内网站
     type: select
@@ -294,10 +229,6 @@ proxy-groups:
       - ✈️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
 
   - name: 🐟 漏网之鱼
     type: select
@@ -308,36 +239,6 @@ proxy-groups:
       - ✈️ 自动选择
       - 🔯 故障转移
       - 🔮 负载均衡
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      
-  - name: 🇭🇰 香港节点
-    type: select
-    use:
-      - HK
-    proxies:
-      - DIRECT
-  - name: 🇯🇵 日本节点
-    type: select
-    use:
-      - JP
-    proxies:
-      - DIRECT
-  - name: 🇨🇳 台湾节点
-    type: select
-    use:
-      - TW
-    proxies:
-      - DIRECT
-  - name: 🇺🇲 美国节点
-    type: select
-    use:
-      - US
-    proxies:
-      - DIRECT
-
 rule-providers:
 
   Direct:
