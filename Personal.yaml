@@ -8,11 +8,12 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 
 proxy-providers:
+  # https://api.v1.mk/sub?target=clash&url=你的订阅链接&list=true&udp=true，多个链接使用英文符号的竖杠|隔开一起写上即可
   AWZR:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://api.awzr.shop/api/v1/client/subscribe?token=2dd392da5ee1fc77cff1d01a7779c175&list=true&udp=true"
     interval: 3600
-    path: ./AWZR.yaml
+    path: ./Personals.yaml
     health-check:
       enable: true
       interval: 600
@@ -21,7 +22,7 @@ proxy-providers:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://sub.dingzige.ga/api/v1/client/subscribe?token=5b8a25e43c414fe629d7572b0fa16dd1&list=true&udp=true"
     interval: 3600
-    path: ./dingzi.yaml
+    path: ./Personals.yaml
     health-check:
       enable: true
       interval: 600
@@ -30,7 +31,7 @@ proxy-providers:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://www.2046.gq/api/v1/client/subscribe?token=6cfa4f72cb8a6c6edce8257b2247baee&list=true&udp=true"
     interval: 3600
-    path: ./2046.yaml
+    path: ./Personals.yaml
     health-check:
       enable: true
       interval: 600
@@ -40,20 +41,29 @@ proxy-providers:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://welink345.com/api/v1/client/subscribe?token=b1a41fe754503f5841ed177c925993f5&list=true&udp=true"
     interval: 3600
-    path: ./welink.yaml
+    path: ./Personals.yaml
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204 
+      url: http://www.gstatic.com/generate_204
   ssrsub:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://sub.ssrsub.com/api/v1/client/subscribe?token=2e231e86617aa83e776f317b52a04e4a&list=true&udp=true"
     interval: 3600
-    path: ./ssrsub.yaml
+    path: ./Personals.yaml
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204    
+      url: http://www.gstatic.com/generate_204
+  qidian:
+    type: http
+    url: "https://api.v1.mk/sub?target=clash&url=https://sub.ssrsub.com/api/v1/client/subscribe?token=2e231e86617aa83e776f317b52a04e4a&list=true&udp=true"
+    interval: 3600
+    path: ./Personals.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
   Music:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/nameking77/Qx/main/music/wyy.txt&list=true&udp=true"
@@ -62,7 +72,45 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: http://apm3.music.163.com 
+      url: http://apm3.music.163.com
+  
+  #香港节点     
+  HK:
+    type: file
+    path: ./Personals.yaml
+    filter: 港|HK|(?i)Hong
+    health-check:
+      enable: true
+      interval: 120
+      url: http://www.gstatic.com/generate_204
+ #日本节点
+  JP:
+    type: file
+    path: ./Personals.yaml
+    filter: 日|东京|JP|(?i)Japan
+    health-check:
+      enable: true
+      interval: 120
+      url: http://www.gstatic.com/generate_204
+ #美国节点
+  US:
+    type: file
+    path: ./Personals.yaml
+    filter: 美|US|(?i)States|American
+    health-check:
+      enable: true
+      interval: 120
+      url: http://www.gstatic.com/generate_204
+ #台湾节点
+  TW:
+    type: file
+    path: ./Personals.yaml
+    filter: 台|湾|TW|(?i)Taiwan
+    health-check:
+      enable: true
+      interval: 120
+      url: http://www.gstatic.com/generate_204
+      
 dns:
   enable: true
   ipv6: true
@@ -93,43 +141,70 @@ dns:
     - https://dns.google/dns-query
     
 proxies:
-  - name: 'erdongchanyo'
+  - name: '美国备用'
     type: trojan
     server: trojan.tgaro.top
     port: 443
     password: edcfreetrojan
-  
+            
 proxy-groups:
   - name: 🚀 手动切换
     type: select
     use:
-      - 2046
-      - welink
-      - ssrsub
-      - dingzi
-      - AWZR
+      - Personals
     proxies:
       - ✈️ 自动选择
-      - erdongchanyo
+      - 美国备用
 
   - name: ✈️ 自动选择
     type: url-test
     use: 
-      - 2046
-      - welink
-      - ssrsub
-      - dingzi
-      - AWZR
-      
+       - Personals
     url: "http://www.gstatic.com/generate_204"
     interval: 300
 
+  - name: 🔯 故障转移
+    type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 美国备用
+      - 🚀 手动切换
+      - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      
+  - name: 🔮 负载均衡
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 美国备用
+      - 🚀 手动切换
+      - ✈️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      
   - name: 🎬 YouTube
     type: select
     proxies:
+      - DIRECT
+      - 美国备用
       - 🚀 手动切换
       - ✈️ 自动选择
-      - DIRECT
+      - 🔯 故障转移
+      - 🔮 负载均衡
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
 
   - name: 🆎 AdBlock
     type: select
@@ -140,36 +215,117 @@ proxy-groups:
   - name: 🌏 国外网站
     type: select
     proxies:
+      - DIRECT
+      - 美国备用
       - 🚀 手动切换
       - ✈️ 自动选择
+      - 🔯 故障转移
+      - 🔮 负载均衡
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
       - DIRECT
+      - 美国备用
+      - 🚀 手动切换
+      - ✈️ 自动选择
+      - 🔯 故障转移
+      - 🔮 负载均衡
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+
+  - name: 🧩 微软服务
+    type: select
+    proxies:
+      - DIRECT
+      - 美国备用
+      - 🚀 手动切换
+      - ✈️ 自动选择
+      - 🔯 故障转移
+      - 🔮 负载均衡
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
 
   - name: 🎶 网易音乐
     type: select
-    use:
+    proxies:
+      - DIRECT
       - Music
-    proxies:
-      - DIRECT
 
+  - name: 🎬 哔哩哔哩
+    type: select
     proxies:
       - DIRECT
+      - 美国备用
+      - 🚀 手动切换
+      - ✈️ 自动选择
+      - 🔯 故障转移
+      - 🔮 负载均衡
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
 
   - name: 🌏 国内网站
     type: select
     proxies:
       - DIRECT
+      - 美国备用
       - 🚀 手动切换
       - ✈️ 自动选择
+      - 🔯 故障转移
+      - 🔮 负载均衡
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
 
   - name: 🐟 漏网之鱼
     type: select
     proxies:
       - DIRECT
+      - 美国备用
       - 🚀 手动切换
       - ✈️ 自动选择
-
-
- 
+      - 🔯 故障转移
+      - 🔮 负载均衡
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      
+  - name: 🇭🇰 香港节点
+    type: select
+    use:
+      - HK
+    proxies:
+      - DIRECT
+  - name: 🇯🇵 日本节点
+    type: select
+    use:
+      - JP
+    proxies:
+      - DIRECT
+  - name: 🇨🇳 台湾节点
+    type: select
+    use:
+      - TW
+    proxies:
+      - DIRECT
+  - name: 🇺🇲 美国节点
+    type: select
+    use:
+      - US
+    proxies:
+      - DIRECT
 
 rule-providers:
 
@@ -183,7 +339,7 @@ rule-providers:
   adblock:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Classical.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Classical.yaml"
     path: ./ruleset/Advertising_Classical.yaml
     interval: 86400
         
@@ -193,25 +349,46 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
     path: ./ruleset/YouTube.yaml
     interval: 86400
-    
+
+  Apple:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml"
+    path: ./ruleset/Apple.yaml
+    interval: 86400
+
   NetEaseMusic:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/NetEaseMusic/NetEaseMusic.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NetEaseMusic/NetEaseMusic.yaml"
     path: ./ruleset/NetEaseMusic.yaml
+    interval: 86400
+    
+  Microsoft:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml"
+    path: ./ruleset/Microsoft.yaml
+    interval: 86400
+
+  BiliBili:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
+    path: ./ruleset/BiliBili.yaml
     interval: 86400
 
   China:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.yaml"
     path: ./ruleset/China.yaml
     interval: 86400
 
   Global_Classical:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@release/rule/Clash/Global/Global_Classical.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml"
     path: ./ruleset/Global_Classical.yaml
     interval: 86400
 
@@ -221,7 +398,10 @@ rules:
   - RULE-SET,Direct,DIRECT
   - RULE-SET,adblock,🆎 AdBlock
   - RULE-SET,YouTube,🎬 YouTube
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,Microsoft,🧩 微软服务
   - RULE-SET,NetEaseMusic,🎶 网易音乐
+  - RULE-SET,BiliBili,🎬 哔哩哔哩
   - RULE-SET,Global_Classical,🌏 国外网站
   - RULE-SET,China,🌏 国内网站
   - IP-CIDR,192.168.0.0/16,DIRECT
@@ -235,3 +415,4 @@ rules:
   - IP-CIDR,182.254.116.0/24,DIRECT
   - GEOIP,CN,🌏 国内网站
   - MATCH,🐟 漏网之鱼
+
