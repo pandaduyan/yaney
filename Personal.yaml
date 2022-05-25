@@ -19,6 +19,16 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204  
 
+  baipiao:
+    type: http
+    url: "https://xn--mesv7f5toqlp.club/api/v1/client/subscribe?token=ff8e0f0dbe491a94f505544f045ad4f4"
+    interval: 3600
+    path: ./baipiao.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204  
+
   YJL:
     type: http
     url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/YJL.yaml"
@@ -116,7 +126,8 @@ proxy-groups:
       - ckcloud
       - qidian
       - 2046
-      - ssrsub  
+      - ssrsub
+      - baipiao
     proxies:
       - ✈️ 自动选择
       - 美国备用
@@ -129,6 +140,7 @@ proxy-groups:
       - qidian
       - 2046
       - ssrsub 
+      - baipiao
     url: "http://www.gstatic.com/generate_204"
     interval: 300
 
