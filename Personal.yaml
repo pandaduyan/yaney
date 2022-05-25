@@ -102,6 +102,7 @@ proxy-groups:
   - name: 🚀 手动切换
     type: select
     use:
+      - YJL
       - qidian
       - 2046
       - ssrsub  
@@ -112,6 +113,7 @@ proxy-groups:
   - name: ✈️ 自动选择
     type: url-test
     use: 
+      - YJL
       - qidian
       - 2046
       - ssrsub 
