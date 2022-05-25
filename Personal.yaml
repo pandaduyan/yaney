@@ -19,18 +19,9 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204  
 
-  feiniao:
-    type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/LiTugou/Crontab/main/freev2/feiniao&list=true&udp=true"
-    interval: 3600
-    path: ./feiniao.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204 
   YJL:
     type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/YJL.yaml&list=true&udp=true"
+    url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/YJL.yaml"
     interval: 3600
     path: ./YJL.yaml
     health-check:
@@ -122,7 +113,6 @@ proxy-groups:
     type: select
     use:
       - YJL
-      - feiniao
       - ckcloud
       - qidian
       - 2046
@@ -135,7 +125,6 @@ proxy-groups:
     type: url-test
     use: 
       - YJL
-      - feiniao
       - ckcloud
       - qidian
       - 2046
