@@ -21,7 +21,7 @@ proxy-providers:
 
     feiniao:
     type: http
-    url: "https://api.v1.mk/sub?target=clash&url=  https://raw.githubusercontent.com/LiTugou/Crontab/main/freev2/feiniao&list=true&udp=true"
+    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/LiTugou/Crontab/main/freev2/feiniao&list=true&udp=true"
     interval: 3600
     path: ./feiniao.yaml
     health-check:
