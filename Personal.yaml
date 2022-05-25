@@ -9,6 +9,25 @@ external-controller: 127.0.0.1:9090
 
 proxy-providers:
   # https://api.v1.mk/sub?target=clash&url=你的订阅链接&list=true&udp=true，多个链接使用英文符号的竖杠|隔开一起写上即可
+  ckcloud:
+    type: http
+    url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/LiTugou/Crontab/main/freev2/ckcloud&list=true&udp=true"
+    interval: 3600
+    path: ./ckcloud.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204  
+
+    feiniao:
+    type: http
+    url: "https://api.v1.mk/sub?target=clash&url=  https://raw.githubusercontent.com/LiTugou/Crontab/main/freev2/feiniao&list=true&udp=true"
+    interval: 3600
+    path: ./feiniao.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204 
   YJL:
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/YJL.yaml&list=true&udp=true"
@@ -103,6 +122,8 @@ proxy-groups:
     type: select
     use:
       - YJL
+      - feiniao
+      - ckcloud
       - qidian
       - 2046
       - ssrsub  
@@ -114,6 +135,8 @@ proxy-groups:
     type: url-test
     use: 
       - YJL
+      - feiniao
+      - ckcloud
       - qidian
       - 2046
       - ssrsub 
