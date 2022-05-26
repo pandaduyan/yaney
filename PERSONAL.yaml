@@ -125,7 +125,6 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     use: 
-      - YJL
       - qidian
       - 2046
       - ssrsub
