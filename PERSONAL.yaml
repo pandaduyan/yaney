@@ -22,16 +22,6 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204  
-
-  YJL:
-    type: http
-    url: "https://raw.githubusercontent.com/pandaduyan/getFreeV2ray/main/YJL.yaml"
-    interval: 3600
-    path: ./YJL.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
   2046:
     type: http
     url: "https://www.2046.gq/api/v1/client/subscribe?token=6cfa4f72cb8a6c6edce8257b2247baee"
@@ -109,7 +99,6 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     use:
-      - YJL
       - qidian
       - 2046
       - ssrsub
@@ -123,7 +112,6 @@ proxy-groups:
     type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
     use: 
-      - YJL
       - qidian
       - 2046
       - ssrsub
