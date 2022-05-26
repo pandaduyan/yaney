@@ -15,7 +15,7 @@ proxy-providers:
   #全部节点
   baipiao:
     type: http
-    url: "https://xn--mesv7f5toqlp.club/api/v1/client/subscribe?token=ff8e0f0dbe491a94f505544f045ad4f4"
+    url: "https://api.v1.mk/sub?target=clash&url=https://xn--mesv7f5toqlp.club/api/v1/client/subscribe?token=ff8e0f0dbe491a94f505544f045ad4f4&list=true&udp=true"
     interval: 3600
     path: ./proxy/baipiao.yaml
     health-check:
@@ -24,7 +24,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204  
   2046:
     type: http
-    url: "https://www.2046.gq/api/v1/client/subscribe?token=6cfa4f72cb8a6c6edce8257b2247baee"
+    url: "https://api.v1.mk/sub?target=clash&url=https://www.2046.gq/api/v1/client/subscribe?token=6cfa4f72cb8a6c6edce8257b2247baee&list=true&udp=true"
     interval: 3600
     path: ./proxy/2046.yaml
     health-check:
@@ -34,7 +34,7 @@ proxy-providers:
   
   ssrsub:
     type: http
-    url: "https://sub.ssrsub.com/api/v1/client/subscribe?token=2e231e86617aa83e776f317b52a04e4a"
+    url: "https://api.v1.mk/sub?target=clash&url=https://sub.ssrsub.com/api/v1/client/subscribe?token=2e231e86617aa83e776f317b52a04e4a&list=true&udp=true"
     interval: 3600
     path: ./proxy/ssrsub.yaml
     health-check:
@@ -43,7 +43,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
   qidian:
     type: http
-    url: "https://qd.freev2r.xyz/api/v1/client/subscribe?token=5df709abcbed96ac73b64ae4cf12ebcf"
+    url: "https://api.v1.mk/sub?target=clash&url=https://qd.freev2r.xyz/api/v1/client/subscribe?token=5df709abcbed96ac73b64ae4cf12ebcf&list=true&udp=true"
     interval: 3600
     path: ./proxy/qidian.yaml
     health-check:
