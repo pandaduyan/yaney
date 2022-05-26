@@ -150,10 +150,6 @@ proxy-groups:
       - 手动切换
       - 自动选择
       - 故障转移
-      - 香港节点
-      - 日本节点
-      - 美国节点
-      - 台湾节点
 
   - name: 国内网站
     type: select
@@ -163,10 +159,6 @@ proxy-groups:
       - 手动切换
       - 自动选择
       - 故障转移
-      - 香港节点
-      - 日本节点
-      - 美国节点
-      - 台湾节点
       
   - name: YouTube
     type: select
