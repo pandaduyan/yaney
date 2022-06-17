@@ -1,126 +1,43 @@
 mixed-port: 7890
-  # 本地混合代理(http和socks5合并）端口
 allow-lan: true
   # 允许局域网连接(false/true)
-bind-address:
-  # 监听IP白名单（当allow-lan：true），只允许列表设备
-  '*'
-  # 全部设备
-  # 192.168.122.11
-  #单个ip4地址
-  # "[aaaa::a8aa:ff:fe09:57d8]"
-  #单个ip6地址
+bind-address: '*'
 mode: rule
   # clash工作模式（rule/global/direct）
 log-level: debug
   # 日志等级（info/warning/error/debug/silent）
 external-controller: 127.0.0.1:9090
-  # 控制器监听地址
 dns:
   enable: true
-  # DNS开关(false/true)
+  ipv6: true
   listen: 0.0.0.0:53
-  # DNS监听地址
-  ipv6: false
-  # IP6解析开关；如果为false，将返回ip6结果为空
   default-nameserver:
-  # 解析非IP的dns用的dns服务器,只支持纯IP
-    - 223.5.5.5
     - 119.29.29.29
+    - 223.5.5.5
   enhanced-mode: fake-ip
-  # DNS模式(redir-host/fake-ip)
+ # DNS模式(redir-host/fake-ip)
   fake-ip-range: 198.18.0.1/16
-  # Fake-IP解析地址池
   fake-ip-filter:
-  # Fake-ip过滤，列表中的域名返回真实ip
     - '*.lan'
-    - '+.cn'
-    - '*.localdomain'
-    - '*.example'
-    - '*.invalid'
-    - '*.localhost'
-    - '*.test'
-    - '*.local'
-    - '*.home.arpa'
-    - 'time.*.com'
-    - 'time.*.gov'
-    - 'time.*.edu.cn'
-    - 'time.*.apple.com'
-    - '*.alipay.com'
-    - '*.time.edu.cn'
-    - '*.ntp.org.cn'
-    - '+.pool.ntp.org'
-    - 'time1.cloud.tencent.com'
-    - 'music.163.com'
-    - '*.music.163.com'
-    - '*.126.net'
-    - 'musicapi.taihe.com'
-    - 'music.taihe.com'
-    - 'songsearch.kugou.com'
-    - 'trackercdn.kugou.com'
-    - '*.kuwo.cn'
-    - 'api-jooxtt.sanook.com'
-    - 'api.joox.com'
-    - 'joox.com'
-    - 'y.qq.com'
-    - '*.y.qq.com'
-    - 'streamoc.music.tc.qq.com'
-    - 'mobileoc.music.tc.qq.com'
-    - 'isure.stream.qqmusic.qq.com'
-    - 'dl.stream.qqmusic.qq.com'
-    - 'aqqmusic.tc.qq.com'
-    - 'amobile.music.tc.qq.com'
-    - '*.xiami.com'
-    - '*.music.migu.cn'
-    - 'music.migu.cn'
-    - '*.msftconnecttest.com'
-    - '*.msftncsi.com'
-    - 'msftconnecttest.com'
-    - 'msftncsi.com'
-    - 'localhost.ptlogin2.qq.com'
-    - 'localhost.sec.qq.com'
+    - localhost.ptlogin2.qq.com
     - '+.srv.nintendo.net'
     - '+.stun.playstation.net'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    - '+.xboxlive.com'
+    - 'msftconnecttest.com'
     - 'xbox.*.microsoft.com'
-    - 'xnotify.xboxlive.com'
-    - '+.battlenet.com.cn'
-    - '+.wotgame.cn'
-    - '+.wggames.cn'
-    - '+.wowsgame.cn'
-    - '+.wargaming.net'
-    - 'proxy.golang.org'
-    - 'stun.*.*'
-    - 'stun.*.*.*'
-    - '+.stun.*.*'
-    - '+.stun.*.*.*'
-    - '+.stun.*.*.*.*'
-    - 'heartbeat.belkin.com'
-    - '*.linksys.com'
-    - '*.linksyssmartwifi.com'
-    - '*.router.asus.com'
-    - 'mesu.apple.com'
-    - 'swscan.apple.com'
-    - 'swquery.apple.com'
-    - 'swdownload.apple.com'
-    - 'swcdn.apple.com'
-    - 'swdist.apple.com'
-    - 'lens.l.google.com'
-    - 'stun.l.google.com'
-    - '+.nflxvideo.net'
-    - '*.square-enix.com'
-    - '*.finalfantasyxiv.com'
-    - '*.ffxiv.com'
-    - '*.mcdn.bilivideo.cn'
-    - 'dl.google.com'
+    - '*.battlenet.com.cn'
+    - '*.battlenet.com'
+    - '*.blzstatic.cn'
+    - '*.battle.net'
   nameserver:
-  # 默认DNS服务器，支持udp/tcp/dot/doh/doq
-    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+
 subscribe-url: 你的订阅链接
-# 替换上面文字用于Stash获取机场流量信息并在主页显示
-proxy-providers:
-  #全部节点      
-   All: &All #建立锚点
+proxy-providers:    
+   All: &All 
     type: http
     url: "https://api.v1.mk/sub?target=clash&url=你的订阅链接&list=true&udp=true"
     # 可以使用任意类型的链接仅替换上面文字，多个链接使用英文符号的竖杠|隔开一起写上即可；
@@ -142,7 +59,7 @@ proxy-providers:
       url: http://apm3.music.163.com  
   #美国节点    
   US:
-    <<: *All #引用锚点内容
+    <<: *All
     filter: 美|🇺🇲|US|(?i)States|American
     
   #香港节点
@@ -178,13 +95,13 @@ proxy-groups:
     use: 
        - All
     url: "http://www.gstatic.com/generate_204"
-    interval: 300
+    interval: 84600
     
   - name: 故障转移
     type: fallback
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bypass.png
     url: 'http://www.gstatic.com/generate_204'
-    interval: 300
+    interval: 84600
     use: 
        - All
        
@@ -294,24 +211,28 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     use:
       - HK
+    interval: 84600
       
   - name: 台湾节点
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
     use:
       - TW
-      
+    interval: 84600
+            
   - name: 日本节点
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
     use:
       - JP
+    interval: 84600
       
   - name: 美国节点
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
     use:
       - US
+    interval: 84600
 
 rule-providers:
 
