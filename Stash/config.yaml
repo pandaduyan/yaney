@@ -5,11 +5,11 @@ mode: rule
 log-level: info
 ipv6: true
 external-controller: 127.0.0.1:9090
-subscribe-url: https://qd.freev2r.xyz/api/v1/client/subscribe?token=5df709abcbed96ac73b64ae4cf12ebcf
+subscribe-url: 订阅信息
 proxy-providers:
   All:
     type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https://qd.freev2r.xyz/api/v1/client/subscribe?token=5df709abcbed96ac73b64ae4cf12ebcf&list=true&udp=true&emoji=true"
+    url: "https://api.v1.mk/sub?target=clash&url=订阅链接&list=true&udp=true&emoji=true"
     interval: 86400
     path: ./all.yaml
     health-check:
