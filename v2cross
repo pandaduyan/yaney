@@ -1,2 +1,0 @@
-proxies:
- - {name: 中转hkdmit 1G 8080|倍率2, server: 120.196.205.109, port: 8080, type: vmess, uuid: cb13bbf4-1019-42c7-bc16-7d79dd8a7396, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: a.189.cn}}}
