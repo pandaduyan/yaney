@@ -61,7 +61,7 @@ proxies:
 proxy-groups:
   - name: 手动切换
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Select.png
     use:
       - All
     proxies:
@@ -70,7 +70,7 @@ proxy-groups:
 
   - name: 自动选择
     type: url-test
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Speedtest.png
     use: 
        - All
     url: "http://www.gstatic.com/generate_204"
@@ -78,7 +78,7 @@ proxy-groups:
     
   - name: 故障转移
     type: fallback
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bypass.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Available.png
     url: 'http://www.gstatic.com/generate_204'
     interval: 84600
     use: 
@@ -86,7 +86,7 @@ proxy-groups:
        
   - name: 国外网站
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Streaming.png
     proxies: &G
       - 手动切换
       - 自动选择
@@ -98,7 +98,7 @@ proxy-groups:
 
   - name: 国内网站
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
+    icon: img-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/StreamingSE.png
     proxies: &C
       - DIRECT
       - 手动切换
@@ -108,49 +108,49 @@ proxy-groups:
       
   - name: 油管
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/YouTube.png
     proxies:
       *G
 
   - name: 电报
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Telegram.png
     proxies:
       *G
 
   - name: 推特
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Twitter.png
     proxies:
       *G
 
   - name: 脸书
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Facebook.png
     proxies:
       *G
 
   - name: Ins
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Instagram.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Instagram.png
     proxies:
       *G
       
   - name: TikTok
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/TikTok.png
     proxies:
       *G
 
   - name: 哔哩哔哩
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/BiliBili.png
     proxies:
       *C
 
   - name: 网易云音乐
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/NetEase_Music.png
     use: 
       - Music
     proxies:
@@ -159,36 +159,36 @@ proxy-groups:
 
   - name: 苹果服务
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Apple.png
     proxies:
       *C
 
   - name: 微软服务
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Microsoft.png
     proxies:
       *G
   - name: 谷歌服务
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Google_Suite/Google.png
     proxies:
       *G
 
   - name: AdBlock
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Reject.png
     proxies:
       - REJECT
       
   - name: 漏网之鱼
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Snapfish.png
     proxies:
       *G
 
   - name: 香港节点
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Hong_Kong.png
     use:
       - HK
     interval: 84600
@@ -196,7 +196,7 @@ proxy-groups:
       
   - name: 台湾节点
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Taiwan.png
     use:
       - TW
     interval: 84600
@@ -204,7 +204,7 @@ proxy-groups:
             
   - name: 日本节点
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Japan.pngg
     use:
       - JP
     interval: 84600
@@ -212,7 +212,7 @@ proxy-groups:
       
   - name: 美国节点
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/United_States.png
     use:
       - US
     interval: 84600
