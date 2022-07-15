@@ -18,13 +18,6 @@ $httpClient.get(url, function(error, response, data){
     let city = jsonData.city
     let isp = jsonData.isp
     
-  body = {
-    title: "网络信息",
-    content: `IP信息: ${ip}\n运营商: ${isp}\nIP位置: ${emoji}${country} - ${city}`,
-    icon: "link.icloud.fill",
-    'icon-color': "#2b7bf6"
-  }
-  $done(body);
 });
 
 
