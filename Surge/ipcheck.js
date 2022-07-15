@@ -5,7 +5,7 @@ https://raw.githubusercontent.com/congcong0806/surge-list/master/Script/ipcheck.
 * 网络信息 = script-name=网络信息, title="IP信息", content="请刷新", style=info, update-interval=60
 * ...
 * [Script]
-* 网络信息 = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/TributePaulWalker/Profiles/main/JavaScript/Surge/ipcheck.js
+* 网络信息 = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/pandaduyan/config/main/Surge/ipcheck.js?token=GHSAT0AAAAAABVVMBY7XBTWC56X4L7T7GCEYWRHEHQ
 */
 
 let url = "http://ip-api.com/json/?lang=zh-CN"
