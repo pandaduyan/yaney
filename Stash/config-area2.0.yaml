@@ -176,12 +176,6 @@ proxy-groups:
     proxies:
       *C
 
-  - name: NetEase Music
-    type: select
-    icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/NetEase_Music.png
-    proxies:
-      *G
-
   - name: /Apple
     type: select
     icon: https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Apple.png
