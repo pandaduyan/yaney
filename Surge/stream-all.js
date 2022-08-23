@@ -1,10 +1,4 @@
-/*
- * 由@LucaLin233编写
- * 原脚本地址：https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/stream-all.js
- * 由@Rabbit-Spec修改
- * 更新日期：2022.07.22
- * 版本：2.3
- */
+//来源：https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/stream-all.js
 
 const REQUEST_HEADERS = {
     'User-Agent':
@@ -40,21 +34,21 @@ const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
  let disney_result=""
     if (status==STATUS_COMING) {
         //console.log(1)
-        disney_result="Disney+: 即将登陆~"+region.toUpperCase()
+        disney_result="D+: 即将登陆~"+region.toUpperCase()
       } else if (status==STATUS_AVAILABLE){
         //console.log(2)
         console.log(region)
-        disney_result="Disney+: 已解锁 ➟ "+region.toUpperCase()
+        disney_result="D+: \u2611"+region.toUpperCase()
         // console.log(result["Disney"])
       } else if (status==STATUS_NOT_AVAILABLE) {
         //console.log(3)
-        disney_result="Disney+: 未支持 🚫 "
+        disney_result="D+: \u2612"
       } else if (status==STATUS_TIMEOUT) {
-        disney_result="Disney+: 检测超时 🚦"
+        disney_result="D+: N/A"
       }
 result.push(disney_result)
 console.log(result)
-        let content = result.join('\n')
+        let content = result.join(' ')
         console.log(content)
      
 panel_result['content'] = content
@@ -96,18 +90,18 @@ panel_result['content'] = content
       })
     }
   
-    let youtube_check_result = 'YouTube: '
+    let youtube_check_result = 'YT: '
   
     await inner_check()
       .then((code) => {
         if (code === 'Not Available') {
-          youtube_check_result += '不支持解锁'
+          youtube_check_result += '\u2612 |'
         } else {
-          youtube_check_result += '已解锁 ➟ ' + code.toUpperCase()
+          youtube_check_result += "\u2611"+code.toUpperCase()+' |'
         }
       })
       .catch((error) => {
-        youtube_check_result += '检测失败，请刷新面板'
+        youtube_check_result += 'N/A'
       })
   
     return youtube_check_result
@@ -152,14 +146,14 @@ panel_result['content'] = content
       })
     }
   
-    let netflix_check_result = 'Netflix: '
+    let netflix_check_result = 'NF: '
   
     await inner_check(81215567)
       .then((code) => {
         if (code === 'Not Found') {
           return inner_check(80018499)
         }
-        netflix_check_result += '已完整解锁 ➟ ' + code.toUpperCase()
+        netflix_check_result += '\u2611'+code.toUpperCase()+' |'
         return Promise.reject('BreakSignal')
       })
       .then((code) => {
@@ -167,7 +161,7 @@ panel_result['content'] = content
           return Promise.reject('Not Available')
         }
   
-        netflix_check_result += '仅解锁自制剧 ➟ ' + code.toUpperCase()
+        netflix_check_result += '⚠ ' + code.toUpperCase()
         return Promise.reject('BreakSignal')
       })
       .catch((error) => {
@@ -175,10 +169,10 @@ panel_result['content'] = content
           return
         }
         if (error === 'Not Available') {
-          netflix_check_result += '该节点不支持解锁'
+          netflix_check_result += '\u2612'
           return
         }
-        netflix_check_result += '检测失败，请刷新面板'
+        netflix_check_result += 'N/A'
       })
   
     return netflix_check_result
