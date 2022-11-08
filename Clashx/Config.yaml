@@ -7,10 +7,9 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 proxy-providers:
   #全部节点
-
-  TEMPORARY: 
+TEMPORARY: 
     type: http
-    url: "https://api.v1.mk/sub?target=clash&url=https://gist.githubusercontent.com/yaney01/015dc32841583581e391e5358a520490/raw/qd|http://shoujiyanxishe.tk/link/BIJCvNVlh7iP6kYT?sub=3#udp=1&emoji=2&emoji=true&list=true&udp=true"
+    url: "https://api.v1.mk/sub?target=clash&url=替换订阅链接#udp=1&emoji=2&emoji=true&list=true&udp=true"
     interval: 600
     path: ./proxy/TEMPORARY.yaml
     health-check:
