@@ -12,7 +12,7 @@ const REQUEST_HEADERS = {
     'icon-color': '#2b7bf6',
   }
 
-  await Promise.all([test_google(), test_youtube(), test_github()])
+  await Promise.all([test_baidu(), test_bilibili(), test_google(), test_youtube(), test_github()])
     .then((result) => {
       let content = result.join('\n')
       panel_result['content'] = content
@@ -21,7 +21,61 @@ const REQUEST_HEADERS = {
       $done(panel_result)
     })
 })()
+/////baidu
+async function test_baidu() {
+  let inner_check = () => {
+    return new Promise((resolve) => {
+      let option = {
+        url: 'https://www.baidu.com',
+        headers: REQUEST_HEADERS,
+      }
+      baidu_startTime = Date.now()
+      $httpClient.post(option, function (error, response, data) {
+        baidu_endTime = Date.now()
+        resolve('1')
+      })
+    })
+  }
 
+  baidu_test_result =  'Baidu' + '\xa0\xa0\xa0\xa0\xa0\xa0' + ': '
+  await inner_check()
+    .then((code) => {
+      baidu_Delay = baidu_endTime-baidu_startTime + ""
+      if (code === '1') {
+        baidu_test_result += baidu_Delay + ' ms'
+      }
+    })
+  
+  return baidu_test_result
+}
+///bilibili
+async function test_bilibili() {
+  let inner_check = () => {
+    return new Promise((resolve) => {
+      let option = {
+        url: 'https://www.bilibili.com',
+        headers: REQUEST_HEADERS,
+      }
+      bilibili_startTime = Date.now()
+      $httpClient.post(option, function (error, response, data) {
+        bilibili_endTime = Date.now()
+        resolve('1')
+      })
+    })
+  }
+
+  bilibili_test_result =  'Bilibili' + '\xa0\xa0\xa0\xa0\xa0\xa0' + ': '
+  await inner_check()
+    .then((code) => {
+      bilibili_Delay = bilibili_endTime-bilibili_startTime + ""
+      if (code === '1') {
+        bilibili_test_result += bilibili_Delay + ' ms'
+      }
+    })
+  
+  return bilibili_test_result
+}
+////youtube
 async function test_youtube() {
   let inner_check = () => {
     return new Promise((resolve) => {
@@ -37,7 +91,7 @@ async function test_youtube() {
     })
   }
 
-  youtube_test_result =  'YouTube' + '\xa0\xa0' + ': '
+  youtube_test_result =  'Youtube' + '\xa0\xa0' + ': '
   await inner_check()
     .then((code) => {
       youtube_Delay = youtube_endTime-youtube_startTime + ""
@@ -49,6 +103,7 @@ async function test_youtube() {
   return youtube_test_result
 }
 
+//keygoogle
 async function test_google() {
   let inner_check = () => {
     return new Promise((resolve) => {
@@ -75,7 +130,7 @@ async function test_google() {
   
   return google_test_result
 }
-
+////Github
 async function test_github() {
   let inner_check = () => {
     return new Promise((resolve) => {
