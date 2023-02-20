@@ -7,7 +7,7 @@ Github:'https://www.github.com'
 }
 
 !(async () => {
-await Promise.all([http('Baidu'),http($.'Bilibili'),http('Github'),http('Google'),http('YouTube')]).then((x)=>{
+await Promise.all([http($. Baidu),http($. Bilibili),http($. Github),http($. Google),http($. YouTube)]).then((x)=>{
 	$done({
     title: '网络连通性测试',
     content: x.join('\n'),
