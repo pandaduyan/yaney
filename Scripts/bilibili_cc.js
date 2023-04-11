@@ -13,7 +13,7 @@
  
 [rewrite_local]
 
-^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$ url script-response-body https://raw.githubusercontent.com/yaney01/yaney/main/Scripts/bilibili_cc.js
+^https?:\/\/aisubtitle\.hdslb\.com\/bfs\/subtitle\/.+\.json url script-response-body https://raw.githubusercontent.com/yaney01/yaney/main/Scripts/bilibili_cc.js
 
 [mitm]
 
